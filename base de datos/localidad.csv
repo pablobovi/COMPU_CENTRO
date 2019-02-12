@@ -1,0 +1,1001 @@
+idlocalidad,nombrelocalidad,provincia_idprovincia
+1,"25 de Mayo",1
+2,"3 de febrero",1
+3,"A. Alsina",1
+4,"A. Gonzáles Cháves",1
+5,"Aguas Verdes",1
+6,Alberti,1
+7,Arrecifes,1
+8,Ayacucho,1
+9,Azul,1
+10,"Bahía Blanca",1
+11,Balcarce,1
+12,Baradero,1
+13,"Benito Juárez",1
+14,Berisso,1
+15,Bolívar,1
+16,Bragado,1
+17,Brandsen,1
+18,Campana,1
+19,Cañuelas,1
+20,"Capilla del Señor",1
+21,"Capitán Sarmiento",1
+22,Carapachay,1
+23,Carhue,1
+24,Cariló,1
+25,"Carlos Casares",1
+26,"Carlos Tejedor",1
+27,"Carmen de Areco",1
+28,"Carmen de Patagones",1
+29,Castelli,1
+30,Chacabuco,1
+31,Chascomús,1
+32,Chivilcoy,1
+33,Colón,1
+34,"Coronel Dorrego",1
+35,"Coronel Pringles",1
+36,"Coronel Rosales",1
+37,"Coronel Suarez",1
+38,"Costa Azul",1
+39,"Costa Chica",1
+40,"Costa del Este",1
+41,"Costa Esmeralda",1
+42,Daireaux,1
+43,Darregueira,1
+44,"Del Viso",1
+45,Dolores,1
+46,"Don Torcuato",1
+47,Ensenada,1
+48,Escobar,1
+49,"Exaltación de la Cruz",1
+50,"Florentino Ameghino",1
+51,Garín,1
+52,"Gral. Alvarado",1
+53,"Gral. Alvear",1
+54,"Gral. Arenales",1
+55,"Gral. Belgrano",1
+56,"Gral. Guido",1
+57,"Gral. Lamadrid",1
+58,"Gral. Las Heras",1
+59,"Gral. Lavalle",1
+60,"Gral. Madariaga",1
+61,"Gral. Pacheco",1
+62,"Gral. Paz",1
+63,"Gral. Pinto",1
+64,"Gral. Pueyrredón",1
+65,"Gral. Rodríguez",1
+66,"Gral. Viamonte",1
+67,"Gral. Villegas",1
+68,Guaminí,1
+69,Guernica,1
+70,"Hipólito Yrigoyen",1
+71,"Ing. Maschwitz",1
+72,Junín,1
+73,"La Plata",1
+74,Laprida,1
+75,"Las Flores",1
+76,"Las Toninas",1
+77,"Leandro N. Alem",1
+78,Lincoln,1
+79,Loberia,1
+80,Lobos,1
+81,"Los Cardales",1
+82,"Los Toldos",1
+83,"Lucila del Mar",1
+84,Luján,1
+85,Magdalena,1
+86,Maipú,1
+87,"Mar Chiquita",1
+88,"Mar de Ajó",1
+89,"Mar de las Pampas",1
+90,"Mar del Plata",1
+91,"Mar del Tuyú",1
+92,"Marcos Paz",1
+93,Mercedes,1
+94,Miramar,1
+95,Monte,1
+96,"Monte Hermoso",1
+97,Munro,1
+98,Navarro,1
+99,Necochea,1
+100,Olavarría,1
+101,"Partido de la Costa",1
+102,Pehuajó,1
+103,Pellegrini,1
+104,Pergamino,1
+105,Pigüé,1
+106,Pila,1
+107,Pilar,1
+108,Pinamar,1
+109,"Pinar del Sol",1
+110,Polvorines,1
+111,"Pte. Perón",1
+112,Puán,1
+113,"Punta Indio",1
+114,Ramallo,1
+115,Rauch,1
+116,Rivadavia,1
+117,Rojas,1
+118,"Roque Pérez",1
+119,Saavedra,1
+120,Saladillo,1
+121,Salliqueló,1
+122,Salto,1
+123,"San Andrés de Giles",1
+124,"San Antonio de Areco",1
+125,"San Antonio de Padua",1
+126,"San Bernardo",1
+127,"San Cayetano",1
+128,"San Clemente del Tuyú",1
+129,"San Nicolás",1
+130,"San Pedro",1
+131,"San Vicente",1
+132,"Santa Teresita",1
+133,Suipacha,1
+134,Tandil,1
+135,Tapalqué,1
+136,Tordillo,1
+137,Tornquist,1
+138,"Trenque Lauquen",1
+139,"Tres Lomas",1
+140,"Villa Gesell",1
+141,Villarino,1
+142,Zárate,1
+143,"11 de Septiembre",2
+144,"20 de Junio",2
+145,"25 de Mayo",2
+146,Acassuso,2
+147,Adrogué,2
+148,"Aldo Bonzi",2
+149,"Área Reserva Cinturón Ecológico",2
+150,Avellaneda,2
+151,Banfield,2
+152,"Barrio Parque",2
+153,"Barrio Santa Teresita",2
+154,Beccar,2
+155,"Bella Vista",2
+156,Berazategui,2
+157,"Bernal Este",2
+158,"Bernal Oeste",2
+159,Billinghurst,2
+160,Boulogne,2
+161,Burzaco,2
+162,Carapachay,2
+163,Caseros,2
+164,Castelar,2
+165,Churruca,2
+166,"Ciudad Evita",2
+167,"Ciudad Madero",2
+168,Ciudadela,2
+169,Claypole,2
+170,Crucecita,2
+171,"Dock Sud",2
+172,"Don Bosco",2
+173,"Don Orione",2
+174,"El Jagüel",2
+175,"El Libertador",2
+176,"El Palomar",2
+177,"El Tala",2
+178,"El Trébol",2
+179,Ezeiza,2
+180,Ezpeleta,2
+181,"Florencio Varela",2
+182,Florida,2
+183,"Francisco Álvarez",2
+184,Gerli,2
+185,Glew,2
+186,"González Catán",2
+187,"Gral. Lamadrid",2
+188,"Grand Bourg",2
+189,"Gregorio de Laferrere",2
+190,"Guillermo Enrique Hudson",2
+191,Haedo,2
+192,Hurlingham,2
+193,"Ing. Sourdeaux",2
+194,"Isidro Casanova",2
+195,Ituzaingó,2
+196,"José C. Paz",2
+197,"José Ingenieros",2
+198,"José Marmol",2
+199,"La Lucila",2
+200,"La Reja",2
+201,"La Tablada",2
+202,Lanús,2
+203,Llavallol,2
+204,"Loma Hermosa",2
+205,"Lomas de Zamora",2
+206,"Lomas del Millón",2
+207,"Lomas del Mirador",2
+208,Longchamps,2
+209,"Los Polvorines",2
+210,"Luis Guillón",2
+211,"Malvinas Argentinas",2
+212,"Martín Coronado",2
+213,Martínez,2
+214,Merlo,2
+215,"Ministro Rivadavia",2
+216,"Monte Chingolo",2
+217,"Monte Grande",2
+218,Moreno,2
+219,Morón,2
+220,Muñiz,2
+221,Olivos,2
+222,"Pablo Nogués",2
+223,"Pablo Podestá",2
+224,"Paso del Rey",2
+225,Pereyra,2
+226,Piñeiro,2
+227,Plátanos,2
+228,Pontevedra,2
+229,Quilmes,2
+230,"Rafael Calzada",2
+231,"Rafael Castillo",2
+232,"Ramos Mejía",2
+233,Ranelagh,2
+234,"Remedios de Escalada",2
+235,"Sáenz Peña",2
+236,"San Antonio de Padua",2
+237,"San Fernando",2
+238,"San Francisco Solano",2
+239,"San Isidro",2
+240,"San José",2
+241,"San Justo",2
+242,"San Martín",2
+243,"San Miguel",2
+244,"Santos Lugares",2
+245,Sarandí,2
+246,Sourigues,2
+247,Tapiales,2
+248,Temperley,2
+249,Tigre,2
+250,Tortuguitas,2
+251,"Tristán Suárez",2
+252,Trujui,2
+253,Turdera,2
+254,"Valentín Alsina",2
+255,"Vicente López",2
+256,"Villa Adelina",2
+257,"Villa Ballester",2
+258,"Villa Bosch",2
+259,"Villa Caraza",2
+260,"Villa Celina",2
+261,"Villa Centenario",2
+262,"Villa de Mayo",2
+263,"Villa Diamante",2
+264,"Villa Domínico",2
+265,"Villa España",2
+266,"Villa Fiorito",2
+267,"Villa Guillermina",2
+268,"Villa Insuperable",2
+269,"Villa José León Suárez",2
+270,"Villa La Florida",2
+271,"Villa Luzuriaga",2
+272,"Villa Martelli",2
+273,"Villa Obrera",2
+274,"Villa Progreso",2
+275,"Villa Raffo",2
+276,"Villa Sarmiento",2
+277,"Villa Tesei",2
+278,"Villa Udaondo",2
+279,"Virrey del Pino",2
+280,Wilde,2
+281,"William Morris",2
+282,Agronomía,3
+283,Almagro,3
+284,Balvanera,3
+285,Barracas,3
+286,Belgrano,3
+287,Boca,3
+288,Boedo,3
+289,Caballito,3
+290,Chacarita,3
+291,Coghlan,3
+292,Colegiales,3
+293,Constitución,3
+294,Flores,3
+295,Floresta,3
+296,"La Paternal",3
+297,Liniers,3
+298,Mataderos,3
+299,Monserrat,3
+300,"Monte Castro",3
+301,"Nueva Pompeya",3
+302,Núñez,3
+303,Palermo,3
+304,"Parque Avellaneda",3
+305,"Parque Chacabuco",3
+306,"Parque Chas",3
+307,"Parque Patricios",3
+308,"Puerto Madero",3
+309,Recoleta,3
+310,Retiro,3
+311,Saavedra,3
+312,"San Cristóbal",3
+313,"San Nicolás",3
+314,"San Telmo",3
+315,"Vélez Sársfield",3
+316,Versalles,3
+317,"Villa Crespo",3
+318,"Villa del Parque",3
+319,"Villa Devoto",3
+320,"Villa Gral. Mitre",3
+321,"Villa Lugano",3
+322,"Villa Luro",3
+323,"Villa Ortúzar",3
+324,"Villa Pueyrredón",3
+325,"Villa Real",3
+326,"Villa Riachuelo",3
+327,"Villa Santa Rita",3
+328,"Villa Soldati",3
+329,"Villa Urquiza",3
+330,Aconquija,4
+331,Ancasti,4
+332,Andalgalá,4
+333,Antofagasta,4
+334,Belén,4
+335,Capayán,4
+336,Capital,4
+337,4,4
+338,"Corral Quemado",4
+339,"El Alto",4
+340,"El Rodeo",4
+341,"F.Mamerto Esquiú",4
+342,Fiambalá,4
+343,Hualfín,4
+344,Huillapima,4
+345,Icaño,4
+346,"La Puerta",4
+347,"Las Juntas",4
+348,Londres,4
+349,"Los Altos",4
+350,"Los Varela",4
+351,Mutquín,4
+352,Paclín,4
+353,Poman,4
+354,"Pozo de La Piedra",4
+355,"Puerta de Corral",4
+356,"Puerta San José",4
+357,Recreo,4
+358,"S.F.V de 4",4
+359,"San Fernando",4
+360,"San Fernando del Valle",4
+361,"San José",4
+362,"Santa María",4
+363,"Santa Rosa",4
+364,Saujil,4
+365,Tapso,4
+366,Tinogasta,4
+367,"Valle Viejo",4
+368,"Villa Vil",4
+369,"Aviá Teraí",5
+370,Barranqueras,5
+371,Basail,5
+372,"Campo Largo",5
+373,Capital,5
+374,"Capitán Solari",5
+375,Charadai,5
+376,Charata,5
+377,Chorotis,5
+378,"Ciervo Petiso",5
+379,"Cnel. Du Graty",5
+380,"Col. Benítez",5
+381,"Col. Elisa",5
+382,"Col. Popular",5
+383,"Colonias Unidas",5
+384,Concepción,5
+385,Corzuela,5
+386,"Cote Lai",5
+387,"El Sauzalito",5
+388,"Enrique Urien",5
+389,Fontana,5
+390,"Fte. Esperanza",5
+391,Gancedo,5
+392,"Gral. Capdevila",5
+393,"Gral. Pinero",5
+394,"Gral. San Martín",5
+395,"Gral. Vedia",5
+396,"Hermoso Campo",5
+397,"I. del Cerrito",5
+398,"J.J. Castelli",5
+399,"La Clotilde",5
+400,"La Eduvigis",5
+401,"La Escondida",5
+402,"La Leonesa",5
+403,"La Tigra",5
+404,"La Verde",5
+405,"Laguna Blanca",5
+406,"Laguna Limpia",5
+407,Lapachito,5
+408,"Las Breñas",5
+409,"Las Garcitas",5
+410,"Las Palmas",5
+411,"Los Frentones",5
+412,Machagai,5
+413,Makallé,5
+414,"Margarita Belén",5
+415,Miraflores,5
+416,"Misión N. Pompeya",5
+417,Napenay,5
+418,"Pampa Almirón",5
+419,"Pampa del Indio",5
+420,"Pampa del Infierno",5
+421,"Pdcia. de La Plaza",5
+422,"Pdcia. Roca",5
+423,"Pdcia. Roque Sáenz Peña",5
+424,"Pto. Bermejo",5
+425,"Pto. Eva Perón",5
+426,"Puero Tirol",5
+427,"Puerto Vilelas",5
+428,Quitilipi,5
+429,Resistencia,5
+430,"Sáenz Peña",5
+431,Samuhú,5
+432,"San Bernardo",5
+433,"Santa Sylvina",5
+434,"Taco Pozo",5
+435,"Tres Isletas",5
+436,"Villa Ángela",5
+437,"Villa Berthet",5
+438,"Villa R. Bermejito",5
+439,"Aldea Apeleg",6
+440,"Aldea Beleiro",6
+441,"Aldea Epulef",6
+442,"Alto Río Sengerr",6
+443,"Buen Pasto",6
+444,Camarones,6
+445,Carrenleufú,6
+446,Cholila,6
+447,"Co. Centinela",6
+448,"Colan Conhué",6
+449,"Comodoro Rivadavia",6
+450,Corcovado,6
+451,Cushamen,6
+452,"Dique F. Ameghino",6
+453,Dolavón,6
+454,"Dr. R. Rojas",6
+455,"El Hoyo",6
+456,"El Maitén",6
+457,Epuyén,6
+458,Esquel,6
+459,Facundo,6
+460,Gaimán,6
+461,"Gan Gan",6
+462,Gastre,6
+463,"Gdor. Costa",6
+464,Gualjaina,6
+465,"J. de San Martín",6
+466,"Lago Blanco",6
+467,"Lago Puelo",6
+468,"Lagunita Salada",6
+469,"Las Plumas",6
+470,"Los Altares",6
+471,"Paso de los Indios",6
+472,"Paso del Sapo",6
+473,"Pto. Madryn",6
+474,"Pto. Pirámides",6
+475,"Rada Tilly",6
+476,Rawson,6
+477,"Río Mayo",6
+478,"Río Pico",6
+479,Sarmiento,6
+480,Tecka,6
+481,Telsen,6
+482,Trelew,6
+483,Trevelin,6
+484,"Veintiocho de Julio",6
+485,Achiras,7
+486,"Adelia Maria",7
+487,"Agua de Oro",7
+488,"Alcira Gigena",7
+489,"Aldea Santa Maria",7
+490,"Alejandro Roca",7
+491,"Alejo Ledesma",7
+492,Alicia,7
+493,Almafuerte,7
+494,"Alpa Corral",7
+495,"Alta Gracia",7
+496,"Alto Alegre",7
+497,"Alto de Los Quebrachos",7
+498,"Altos de Chipion",7
+499,Amboy,7
+500,Ambul,7
+501,"Ana Zumaran",7
+502,Anisacate,7
+503,Arguello,7
+504,Arias,7
+505,Arroyito,7
+506,"Arroyo Algodon",7
+507,"Arroyo Cabral",7
+508,"Arroyo Los Patos",7
+509,Assunta,7
+510,Atahona,7
+511,Ausonia,7
+512,Avellaneda,7
+513,Ballesteros,7
+514,"Ballesteros Sud",7
+515,Balnearia,7
+516,"Bañado de Soto",7
+517,"Bell Ville",7
+518,Bengolea,7
+519,"Benjamin Gould",7
+520,Berrotaran,7
+521,"Bialet Masse",7
+522,Bouwer,7
+523,Brinkmann,7
+524,Buchardo,7
+525,Bulnes,7
+526,Cabalango,7
+527,Calamuchita,7
+528,Calchin,7
+529,"Calchin Oeste",7
+530,Calmayo,7
+531,"Camilo Aldao",7
+532,Caminiaga,7
+533,"Cañada de Luque",7
+534,"Cañada de Machado",7
+535,"Cañada de Rio Pinto",7
+536,"Cañada del Sauce",7
+537,Canals,7
+538,"Candelaria Sud",7
+539,"Capilla de Remedios",7
+540,"Capilla de Siton",7
+541,"Capilla del Carmen",7
+542,"Capilla del Monte",7
+543,Capital,7
+544,"Capitan Gral B. O´Higgins",7
+545,Carnerillo,7
+546,Carrilobo,7
+547,"Casa Grande",7
+548,Cavanagh,7
+549,"Cerro Colorado",7
+550,Chaján,7
+551,Chalacea,7
+552,"Chañar Viejo",7
+553,Chancaní,7
+554,Charbonier,7
+555,Charras,7
+556,Chazón,7
+557,Chilibroste,7
+558,Chucul,7
+559,Chuña,7
+560,"Chuña Huasi",7
+561,"Churqui Cañada",7
+562,"Cienaga Del Coro",7
+563,Cintra,7
+564,"Col. Almada",7
+565,"Col. Anita",7
+566,"Col. Barge",7
+567,"Col. Bismark",7
+568,"Col. Bremen",7
+569,"Col. Caroya",7
+570,"Col. Italiana",7
+571,"Col. Iturraspe",7
+572,"Col. Las Cuatro Esquinas",7
+573,"Col. Las Pichanas",7
+574,"Col. Marina",7
+575,"Col. Prosperidad",7
+576,"Col. San Bartolome",7
+577,"Col. San Pedro",7
+578,"Col. Tirolesa",7
+579,"Col. Vicente Aguero",7
+580,"Col. Videla",7
+581,"Col. Vignaud",7
+582,"Col. Waltelina",7
+583,Colazo,7
+584,Comechingones,7
+585,Conlara,7
+586,Copacabana,7
+587,7,7
+588,"Coronel Baigorria",7
+589,"Coronel Moldes",7
+590,"Corral de Bustos",7
+591,Corralito,7
+592,Cosquín,7
+593,"Costa Sacate",7
+594,"Cruz Alta",7
+595,"Cruz de Caña",7
+596,"Cruz del Eje",7
+597,"Cuesta Blanca",7
+598,"Dean Funes",7
+599,"Del Campillo",7
+600,Despeñaderos,7
+601,Devoto,7
+602,"Diego de Rojas",7
+603,"Dique Chico",7
+604,"El Arañado",7
+605,"El Brete",7
+606,"El Chacho",7
+607,"El Crispín",7
+608,"El Fortín",7
+609,"El Manzano",7
+610,"El Rastreador",7
+611,"El Rodeo",7
+612,"El Tío",7
+613,Elena,7
+614,Embalse,7
+615,Esquina,7
+616,"Estación Gral. Paz",7
+617,"Estación Juárez Celman",7
+618,"Estancia de Guadalupe",7
+619,"Estancia Vieja",7
+620,Etruria,7
+621,"Eufrasio Loza",7
+622,"Falda del Carmen",7
+623,Freyre,7
+624,"Gral. Baldissera",7
+625,"Gral. Cabrera",7
+626,"Gral. Deheza",7
+627,"Gral. Fotheringham",7
+628,"Gral. Levalle",7
+629,"Gral. Roca",7
+630,"Guanaco Muerto",7
+631,Guasapampa,7
+632,Guatimozin,7
+633,Gutenberg,7
+634,Hernando,7
+635,Huanchillas,7
+636,"Huerta Grande",7
+637,"Huinca Renanco",7
+638,Idiazabal,7
+639,Impira,7
+640,Inriville,7
+641,"Isla Verde",7
+642,Italó,7
+643,"James Craik",7
+644,"Jesús María",7
+645,Jovita,7
+646,"Justiniano Posse",7
+647,"Km 658",7
+648,"L. V. Mansilla",7
+649,"La Batea",7
+650,"La Calera",7
+651,"La Carlota",7
+652,"La Carolina",7
+653,"La Cautiva",7
+654,"La Cesira",7
+655,"La Cruz",7
+656,"La Cumbre",7
+657,"La Cumbrecita",7
+658,"La Falda",7
+659,"La Francia",7
+660,"La Granja",7
+661,"La Higuera",7
+662,"La Laguna",7
+663,"La Paisanita",7
+664,"La Palestina",7
+665,12,7
+666,"La Paquita",7
+667,"La Para",7
+668,"La Paz",7
+669,"La Playa",7
+670,"La Playosa",7
+671,"La Población",7
+672,"La Posta",7
+673,"La Puerta",7
+674,"La Quinta",7
+675,"La Rancherita",7
+676,"La Rinconada",7
+677,"La Serranita",7
+678,"La Tordilla",7
+679,Laborde,7
+680,Laboulaye,7
+681,"Laguna Larga",7
+682,"Las Acequias",7
+683,"Las Albahacas",7
+684,"Las Arrias",7
+685,"Las Bajadas",7
+686,"Las Caleras",7
+687,"Las Calles",7
+688,"Las Cañadas",7
+689,"Las Gramillas",7
+690,"Las Higueras",7
+691,"Las Isletillas",7
+692,"Las Junturas",7
+693,"Las Palmas",7
+694,"Las Peñas",7
+695,"Las Peñas Sud",7
+696,"Las Perdices",7
+697,"Las Playas",7
+698,"Las Rabonas",7
+699,"Las Saladas",7
+700,"Las Tapias",7
+701,"Las Varas",7
+702,"Las Varillas",7
+703,"Las Vertientes",7
+704,Leguizamón,7
+705,Leones,7
+706,"Los Cedros",7
+707,"Los Cerrillos",7
+708,"Los Chañaritos (C.E)",7
+709,"Los Chanaritos (R.S)",7
+710,"Los Cisnes",7
+711,"Los Cocos",7
+712,"Los Cóndores",7
+713,"Los Hornillos",7
+714,"Los Hoyos",7
+715,"Los Mistoles",7
+716,"Los Molinos",7
+717,"Los Pozos",7
+718,"Los Reartes",7
+719,"Los Surgentes",7
+720,"Los Talares",7
+721,"Los Zorros",7
+722,Lozada,7
+723,Luca,7
+724,Luque,7
+725,Luyaba,7
+726,Malagueño,7
+727,Malena,7
+728,"Malvinas Argentinas",7
+729,Manfredi,7
+730,"Maquinista Gallini",7
+731,"Marcos Juárez",7
+732,Marull,7
+733,Matorrales,7
+734,Mattaldi,7
+735,"Mayu Sumaj",7
+736,"Media Naranja",7
+737,Melo,7
+738,Mendiolaza,7
+739,"Mi Granja",7
+740,"Mina Clavero",7
+741,Miramar,7
+742,Morrison,7
+743,Morteros,7
+744,"Mte. Buey",7
+745,"Mte. Cristo",7
+746,"Mte. De Los Gauchos",7
+747,"Mte. Leña",7
+748,"Mte. Maíz",7
+749,"Mte. Ralo",7
+750,"Nicolás Bruzone",7
+751,Noetinger,7
+752,Nono,7
+753,"Nueva 7",7
+754,"Obispo Trejo",7
+755,Olaeta,7
+756,Oliva,7
+757,"Olivares San Nicolás",7
+758,Onagolty,7
+759,Oncativo,7
+760,Ordoñez,7
+761,"Pacheco De Melo",7
+762,"Pampayasta N.",7
+763,"Pampayasta S.",7
+764,Panaholma,7
+765,Pascanas,7
+766,Pasco,7
+767,"Paso del Durazno",7
+768,"Paso Viejo",7
+769,Pilar,7
+770,Pincén,7
+771,Piquillín,7
+772,"Plaza de Mercedes",7
+773,"Plaza Luxardo",7
+774,Porteña,7
+775,"Potrero de Garay",7
+776,"Pozo del Molle",7
+777,"Pozo Nuevo",7
+778,"Pueblo Italiano",7
+779,"Puesto de Castro",7
+780,"Punta del Agua",7
+781,"Quebracho Herrado",7
+782,Quilino,7
+783,"Rafael García",7
+784,Ranqueles,7
+785,"Rayo Cortado",7
+786,Reducción,7
+787,Rincón,7
+788,"Río Bamba",7
+789,"Río Ceballos",7
+790,"Río Cuarto",7
+791,"Río de Los Sauces",7
+792,"Río Primero",7
+793,"Río Segundo",7
+794,"Río Tercero",7
+795,Rosales,7
+796,"Rosario del Saladillo",7
+797,Sacanta,7
+798,"Sagrada Familia",7
+799,Saira,7
+800,Saladillo,7
+801,Saldán,7
+802,Salsacate,7
+803,Salsipuedes,7
+804,Sampacho,7
+805,"San Agustín",7
+806,"San Antonio de Arredondo",7
+807,"San Antonio de Litín",7
+808,"San Basilio",7
+809,"San Carlos Minas",7
+810,"San Clemente",7
+811,"San Esteban",7
+812,"San Francisco",7
+813,"San Ignacio",7
+814,"San Javier",7
+815,"San Jerónimo",7
+816,"San Joaquín",7
+817,"San José de La Dormida",7
+818,"San José de Las Salinas",7
+819,"San Lorenzo",7
+820,"San Marcos Sierras",7
+821,"San Marcos Sud",7
+822,"San Pedro",7
+823,"San Pedro N.",7
+824,"San Roque",7
+825,"San Vicente",7
+826,"Santa Catalina",7
+827,"Santa Elena",7
+828,"Santa Eufemia",7
+829,"Santa Maria",7
+830,Sarmiento,7
+831,"Saturnino M.Laspiur",7
+832,"Sauce Arriba",7
+833,"Sebastián Elcano",7
+834,Seeber,7
+835,"Segunda Usina",7
+836,Serrano,7
+837,Serrezuela,7
+838,"Sgo. Temple",7
+839,"Silvio Pellico",7
+840,Simbolar,7
+841,Sinsacate,7
+842,"Sta. Rosa de Calamuchita",7
+843,"Sta. Rosa de Río Primero",7
+844,Suco,7
+845,"Tala Cañada",7
+846,"Tala Huasi",7
+847,Talaini,7
+848,Tancacha,7
+849,Tanti,7
+850,Ticino,7
+851,Tinoco,7
+852,"Tío Pujio",7
+853,Toledo,7
+854,"Toro Pujio",7
+855,Tosno,7
+856,Tosquita,7
+857,Tránsito,7
+858,Tuclame,7
+859,Tutti,7
+860,Ucacha,7
+861,Unquillo,7
+862,"Valle de Anisacate",7
+863,"Valle Hermoso",7
+864,"Vélez Sarfield",7
+865,Viamonte,7
+866,"Vicuña Mackenna",7
+867,"Villa Allende",7
+868,"Villa Amancay",7
+869,"Villa Ascasubi",7
+870,"Villa Candelaria N.",7
+871,"Villa Carlos Paz",7
+872,"Villa Cerro Azul",7
+873,"Villa Ciudad de América",7
+874,"Villa Ciudad Pque Los Reartes",7
+875,"Villa Concepción del Tío",7
+876,"Villa Cura Brochero",7
+877,"Villa de Las Rosas",7
+878,"Villa de María",7
+879,"Villa de Pocho",7
+880,"Villa de Soto",7
+881,"Villa del Dique",7
+882,"Villa del Prado",7
+883,"Villa del Rosario",7
+884,"Villa del Totoral",7
+885,"Villa Dolores",7
+886,"Villa El Chancay",7
+887,"Villa Elisa",7
+888,"Villa Flor Serrana",7
+889,"Villa Fontana",7
+890,"Villa Giardino",7
+891,"Villa Gral. Belgrano",7
+892,"Villa Gutierrez",7
+893,"Villa Huidobro",7
+894,"Villa La Bolsa",7
+895,"Villa Los Aromos",7
+896,"Villa Los Patos",7
+897,"Villa María",7
+898,"Villa Nueva",7
+899,"Villa Pque. Santa Ana",7
+900,"Villa Pque. Siquiman",7
+901,"Villa Quillinzo",7
+902,"Villa Rossi",7
+903,"Villa Rumipal",7
+904,"Villa San Esteban",7
+905,"Villa San Isidro",7
+906,"Villa 21",7
+907,"Villa Sarmiento (G.R)",7
+908,"Villa Sarmiento (S.A)",7
+909,"Villa Tulumba",7
+910,"Villa Valeria",7
+911,"Villa Yacanto",7
+912,Washington,7
+913,"Wenceslao Escalante",7
+914,"Ycho Cruz Sierras",7
+915,Alvear,8
+916,"Bella Vista",8
+917,"Berón de Astrada",8
+918,Bonpland,8
+919,"Caá Cati",8
+920,Capital,8
+921,Chavarría,8
+922,"Col. C. Pellegrini",8
+923,"Col. Libertad",8
+924,"Col. Liebig",8
+925,"Col. Sta Rosa",8
+926,Concepción,8
+927,"Cruz de Los Milagros",8
+928,Curuzú-Cuatiá,8
+929,Empedrado,8
+930,Esquina,8
+931,"Estación Torrent",8
+932,"Felipe Yofré",8
+933,Garruchos,8
+934,"Gdor. Agrónomo",8
+935,"Gdor. Martínez",8
+936,Goya,8
+937,Guaviravi,8
+938,Herlitzka,8
+939,Ita-Ibate,8
+940,Itatí,8
+941,Ituzaingó,8
+942,"José Rafael Gómez",8
+943,"Juan Pujol",8
+944,"La Cruz",8
+945,Lavalle,8
+946,"Lomas de Vallejos",8
+947,Loreto,8
+948,"Mariano I. Loza",8
+949,Mburucuyá,8
+950,Mercedes,8
+951,Mocoretá,8
+952,"Mte. Caseros",8
+953,"Nueve de Julio",8
+954,"Palmar Grande",8
+955,"Parada Pucheta",8
+956,"Paso de La Patria",8
+957,"Paso de Los Libres",8
+958,"Pedro R. Fernandez",8
+959,Perugorría,8
+960,"Pueblo Libertador",8
+961,"Ramada Paso",8
+962,Riachuelo,8
+963,Saladas,8
+964,"San Antonio",8
+965,"San Carlos",8
+966,"San Cosme",8
+967,"San Lorenzo",8
+968,"20 del Palmar",8
+969,"San Miguel",8
+970,"San Roque",8
+971,"Santa Ana",8
+972,"Santa Lucía",8
+973,"Santo Tomé",8
+974,Sauce,8
+975,Tabay,8
+976,Tapebicuá,8
+977,Tatacua,8
+978,Virasoro,8
+979,Yapeyú,8
+980,"Yataití Calle",8
+981,Alarcón,9
+982,Alcaraz,9
+983,"Alcaraz N.",9
+984,"Alcaraz S.",9
+985,"Aldea Asunción",9
+986,"Aldea Brasilera",9
+987,"Aldea Elgenfeld",9
+988,"Aldea Grapschental",9
+989,"Aldea Ma. Luisa",9
+990,"Aldea Protestante",9
+991,"Aldea Salto",9
+992,"Aldea San Antonio (G)",9
+993,"Aldea San Antonio (P)",9
+994,"Aldea 19",9
+995,"Aldea San Miguel",9
+996,"Aldea San Rafael",9
+997,"Aldea Spatzenkutter",9
+998,"Aldea Sta. María",9
+999,"Aldea Sta. Rosa",9
+1000,"Aldea Valle María",9
