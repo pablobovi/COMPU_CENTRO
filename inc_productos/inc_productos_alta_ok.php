@@ -15,7 +15,19 @@
 
 	$alta_producto = "INSERT INTO producto (nombreproducto, marca, stockproducto, porcentajeganancia, precioventa, preciocompra, stockcritico, categoriaproducto_idcategoriaproducto)
 	 VALUES ('$nombreproducto',' $marcaproducto','$stockproducto', '$porcganancia', '$preciopublico', '$preciocompra', '$stockcritico', '$idcategoriaproductos')";
-	mysql_query($alta_producto);
+		mysql_query($alta_producto);
+
+	$idempleado=$_SESSION["idempleado"];
+	$accion='alta';
+	$tabla='productos';
+	$descripcion='agrego el producto '.$nombreproducto.' marca '.$marcaproducto;
+	$formato = 'Y-m-d H:i:s';
+	$fecha =new DateTime();
+	$dateformat = date_format($fecha, $formato);
+
+	$insertlogin="INSERT INTO auditor (idempleado, accion, tabla, descripcion, fecha)
+	values ($idempleado,'$accion','$tabla','$descripcion','$dateformat') ";
+	mysql_query($insertlogin);
 ?>
 
 <?php //si el producto se carga ?>

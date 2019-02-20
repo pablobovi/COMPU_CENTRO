@@ -12,7 +12,6 @@
 	$telefonoempleado=$_POST['telefonoempleado'];
 	$horastrabajadas=$_POST['horastrabajadas'];
 	
-	
 	$inputlocalidad=$_POST['inputlocalidad'];
 	$barrio=$_POST['barrio'];
 	$manzana=$_POST['manzana'];

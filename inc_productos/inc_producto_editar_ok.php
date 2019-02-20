@@ -1,3 +1,5 @@
+<?php require_once('Connections/conexion_smile.php'); ?>
+<?php include('sis_acceso_ok.php'); ?> 
 <?php
 	mysql_select_db($database_conexion_smile,$conexion_smile);
 
@@ -19,9 +21,17 @@
 		WHERE idproducto=$idproducto";
 		mysql_query($update_producto);
 
-
-
-
+		$idempleado=$_SESSION["idempleado"];
+		$accion='editar';
+		$tabla='productos';
+		$descripcion='edito el producto '.$nombreproducto.' marca '.$marca.' con id '.$idproducto;
+		$formato = 'Y-m-d H:i:s';
+		$fecha =new DateTime();
+		$dateformat = date_format($fecha, $formato);
+	
+		$insertlogin="INSERT INTO auditor (idempleado, accion, tabla, descripcion, fecha)
+		 values ($idempleado,'$accion','$tabla','$descripcion','$dateformat') ";
+		mysql_query($insertlogin);
 ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	<div><h2>Modificaci&oacute;n de producto exitosa!</h2></div>

@@ -30,8 +30,6 @@
 	}
 ?>
 
-
-
 <?php include "inc_footer.php" ?>
 </div>
 </div>

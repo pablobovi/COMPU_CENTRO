@@ -5,5 +5,7 @@
 
 	$eliminarventa = "DELETE FROM lineaventa WHERE venta_idventa='1'";
 	mysql_query($eliminarventa);
+	
 
 ?>
+	<?php include('auditor.php');?>

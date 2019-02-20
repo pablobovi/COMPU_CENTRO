@@ -77,7 +77,21 @@
 		mysql_query("UPDATE cuenta SET saldocuenta='$totalcuenta' WHERE idcuenta=$idcuenta");
 		mysql_query("UPDATE venta SET cuenta_idcuenta='$idcuenta' WHERE idventa=$ult_venta;");
 
+	
+
 	}
+
+	$idempleado=$_SESSION["idempleado"];
+	$accion='alta';
+	$tabla='venta';
+	$descripcion='realizo una venta por '.$total;
+	$formato = 'Y-m-d H:i:s';
+	$fecha =new DateTime();
+	$dateformat = date_format($fecha, $formato);
+
+	$insertlogin="INSERT INTO auditor (idempleado, accion, tabla, descripcion, fecha)
+	values ($idempleado,'$accion','$tabla','$descripcion','$dateformat') ";
+	mysql_query($insertlogin);
 
 	include "inc_ventas/inc_alta_venta.php";
 ?>

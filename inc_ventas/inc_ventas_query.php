@@ -19,6 +19,7 @@ else{
 	LEFT JOIN venta_has_pago ON venta_idventa=idventa
 	LEFT JOIN pago ON pago_idpago=idpago
 	WHERE idventa!=1 ORDER BY fechaventa DESC");
+	echo($q_venta);
 }
 
-?>
+?>   
