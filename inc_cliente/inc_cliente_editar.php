@@ -34,7 +34,7 @@ $row_cliente= mysql_fetch_array($q_cliente);
 <tr>
 	<td><div align='right'>Tipo de cliente </div></td>
 	<td><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<?php  include "includes/select_multiple/index_select_tipocliente_editar.php" ?>
+	<?php  include "includes/select_multiple/index_select_tipo_editar.php" ?>
 	</div></td>
 </tr>
 <tr>

@@ -5,7 +5,7 @@
 	$cuilcliente=$_POST['cuilcliente'];
 	$mailcliente=$_POST['mailcliente'];
 	$telefonocliente=$_POST['telefonocliente'];
-	$tipocliente=$_POST['tipocliente'];
+	$tipo=$_POST['tipo'];
 
 	$calle=$_POST['calle'];
 	$numero=$_POST['numero'];
@@ -13,22 +13,22 @@
 	$barrio=$_POST['barrio'];
 	$inputlocalidad=$_POST['inputlocalidad'];
 
-	$alta_direccion=mysql_query("INSERT INTO direccion (calle, numero, manzana, barrio, localidad_idlocalidad) 
+	$alta_direccion=mysql_query("INSERT INTO direccion (calle, numero, manzana, barrio, localidad_idlocalidad)
 		VALUES ('$calle', '$numero', '$manzana', '$barrio', '$inputlocalidad')");
 
 	$q_ultimadireccion=mysql_query("SELECT * FROM direccion ORDER BY iddireccion DESC LIMIT 0,1");
 	$row_ultimadireccion=mysql_fetch_array($q_ultimadireccion);
 	$id_ultimadireccion=$row_ultimadireccion['iddireccion'];
 
-	$alta_cliente=mysql_query("INSERT INTO cliente (nombreorsocial, cuilcliente, mailcliente, telefonocliente, tipocliente_idtipocliente, direccion_iddireccion, estado) 
-		VALUES ('$nombreorsocial', '$cuilcliente', '$mailcliente', '$telefonocliente', '$tipocliente', '$id_ultimadireccion', '1')");
+	$alta_cliente=mysql_query("INSERT INTO cliente (nombreorsocial, cuilcliente, mailcliente, telefonocliente, tipo_idtipo, direccion_iddireccion, estado)
+		VALUES ('$nombreorsocial', '$cuilcliente', '$mailcliente', '$telefonocliente', '$tipo', '$id_ultimadireccion', '1')");
 
 	$q_ultimocliente = mysql_query("SELECT * FROM cliente ORDER BY idcliente DESC LIMIT 0,1");
 	$row_ultimocliente = mysql_fetch_array($q_ultimocliente);
 	$id_ultimocliente = $row_ultimocliente['idcliente'];
 	$saldocuenta = 0;
 
-	$alta_cuenta = mysql_query("INSERT INTO cuenta (saldocuenta, cliente_idcliente,estado) 
+	$alta_cuenta = mysql_query("INSERT INTO cuenta (saldocuenta, cliente_idcliente,estado)
 									 VALUES ('$saldocuenta', '$id_ultimocliente','1')");
 ?>
 

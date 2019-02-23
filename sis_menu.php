@@ -23,7 +23,7 @@
 <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-edit"></i> Liquidaci&oacute;n de sueldos<i class="fa fa-collapse"></i></a></li>
 <li>
   <ul class="legal-menu nav nav-list collapse">
-    <li><a href="liquidar_nuevo.php"><span class="fa fa-caret-right"></span> Liquidar</a></li>
+    <li><a href="liquidar.php"><span class="fa fa-caret-right"></span> Liquidar </a></li>
     <li><a href="liquidaciones.php"><span class="fa fa-caret-right"></span> Listar Liquidaciones</a></li>
     <li><a href="tipo_liquidaciones.php"><span class="fa fa-caret-right"></span> Tipos de Liquidaciones</a></li>
     <li><a href="conceptos.php"><span class="fa fa-caret-right"></span> Conceptos</a></li>

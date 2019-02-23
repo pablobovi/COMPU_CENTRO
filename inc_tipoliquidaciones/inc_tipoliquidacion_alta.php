@@ -1,5 +1,5 @@
 <?php mysql_select_db($database_conexion_smile,$conexion_smile);
-$q_conceptos=mysql_query("SELECT idconcepto,descripcionconcepto FROM concepto");
+$q_conceptos=mysql_query("SELECT idconcepto,descripcionconcepto FROM concepto WHERE estado=1");
 ?>
 <form action="tipoliquidacion_alta_ok.php" method="POST" role="form">
 <legend>Tipo de Liquidacion</legend>

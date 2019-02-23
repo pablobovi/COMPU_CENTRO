@@ -17,13 +17,16 @@
   <div class="main-content">
     <!-- Contenido principal -->
     <ul class="nav nav-tabs">
-      <li><a href="liquidar.php">Listado de Liquidaciones</a></li>
-      <li class="active"><a href="#">Liquidar</a></li>
+      <li class="active"><a href="#">Listado de Liquidaciones</a></li>
+      <li><a href="liquidar_nuevo.php">Liquidar</a></li>
     </ul>
     <br>
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in">
-      <?php  include "inc_liquidaciones/inc_liquidaciones_form_nuevo.php" ?>
+    <!--    <?php  include "includes/buscador/inc_buscador_empleados.php" ?> -->
+      <br/>
+    <?php include "inc_liquidaciones/inc_liquidar_query.php" ?>
+      <?php include "inc_liquidaciones/inc_liquidar_grid.php"; ?>
       </div>
     </div>
 

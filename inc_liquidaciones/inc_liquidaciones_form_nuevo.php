@@ -1,7 +1,11 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
-$q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
+<?php require_once('Connections/conexion_smile.php'); ?>
+<?php include('sis_acceso_ok.php'); ?>
+<?php
+    mysql_select_db($database_conexion_smile, $conexion_smile);
+    $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
+
 ?>
-<form class="form-inline"action="alta_compra.php" method="POST" role="form" onsubmit="return validar();">
+<form class="" action="liquidacion_alta_ok_nuevo.php" method="POST" class="form-inline" role=form onsubmit="return verificar();" onsubmit="validad();">
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
@@ -13,40 +17,39 @@ Nueva Liquidacion
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="row control-group">
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-6">
-Liquidacion
-          <div class="clearfix"></div>
-          <?php include "includes/chosen/index_select_tipoliquidacion.php" ?>
-      </div>
+
+
+ <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="">Descripcion</label>
+  Descripcion de Liquidacion
+       <input class="form-control" name="descripcion" id="inputDescripcion" class="form-control" required="required" placeholder="Descripcion" required>
+    </div>
 </div>
+
+
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="">Tipo de cliente</label>
+        <?php  include "includes/chosen/index_select_tipoliquidacion.php" ?>
+    </div>
+</div>
+
 <div class="row control-group">
 
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
 Desde
     											<label class="sr-only" for="">Desde:</label>
-    											<input type="date" class="form-control" id="fechaliquidacion" name="fechaliquidacion" placeholder="Input field">
-                          <input type="hidden" name="verifica" id="inputverifica" class="form-control" value="">
+    											<input type="date" class="form-control" id="fechadesde" name="fechadesde" placeholder="Input field">
 
     </div>
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
 Hasta
    										   	<label class="sr-only" for="">Hasta:</label>
-    											<input type="date" class="form-control" id="fechaliquidacion" name="fechaliquidacion" placeholder="Input field">
-                          <input type="hidden" name="verifica" id="inputverifica" class="form-control" value="">
+    											<input type="date" class="form-control" id="fechahasta" name="fechahasta" placeholder="Input field">
 
     </div>
   </div>
-  <div class="form-group">
-    Empleado/s: <br>
-    <select multiple class='form-control' name="idempleado[]">
-    <?php
-    while ($row_empleado=mysql_fetch_array($q_empleado)){
-      ?>
-      <option value="<?php echo $row_empleado['idempleado']?>"><?php echo $row_empleado['apellidoempleado'] ?></option>
-    <?php      }?>
-    ...
-    </select><br>
-</div>
-    <legend></legend>
 
   </div>
 
@@ -55,9 +58,9 @@ Hasta
   <br>
   <br>
 
-  <button type="submit" class="btn boton-send btn-info pull-right btn-md">Aceptar Compra</button>
+  <button type="submit" class="btn boton-send btn-info pull-right btn-md">Liquidar</button>
 
-  <button type="button" id="cancelar" class="btn btn-danger btn-primary pull-left btn-md">Cancelar Compra</button>
+  <button type="button" id="cancelar" class="btn btn-danger btn-primary pull-left btn-md">Cancelar</button>
     </div>
 </form>
 

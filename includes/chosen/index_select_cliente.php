@@ -1,27 +1,27 @@
-<?php 
+<?php
  mysql_select_db($database_conexion_smile,$conexion_smile);
 
   $q_clientes=mysql_query("SELECT * FROM cliente
-  INNER JOIN tipocliente ON tipocliente_idtipocliente=idtipocliente
+  INNER JOIN tipo ON tipo_idtipo=idtipo
   INNER JOIN direccion ON direccion_iddireccion=iddireccion
   INNER JOIN localidad ON localidad_idlocalidad=idlocalidad
   INNER JOIN provincia ON provincia_idprovincia=idprovincia
   WHERE estado=1
-  ORDER BY nombreorsocial");  
+  ORDER BY nombreorsocial");
 ?>
   <select data-placeholder="Clientes" class="form-control chosen-select" tabindex="4" name="idcliente" id="inputidcliente">
       <option value="">Seleccione un Cliente</option>
-      <?php 
-      while ($row_cliente=mysql_fetch_array($q_clientes)){ 
+      <?php
+      while ($row_cliente=mysql_fetch_array($q_clientes)){
         if ($row_cliente['idcliente']==1) {?>
           <option value="<?php echo $row_cliente['idcliente']?>" selected><?php echo $row_cliente['nombreorsocial']?></option>
        <?php }
-       else{ 
+       else{
         ?>
         <option value="<?php echo $row_cliente['idcliente']?>"><?php echo $row_cliente['nombreorsocial']?></option>
       <?php }
       } ?>
-  </select>  
+  </select>
 
 
   <script type="text/javascript">
@@ -43,9 +43,9 @@
     $.post("includes/obtenercliente.php", { idclientejs: idclientejs }, function(data){
                 var devuelve=data.split(",");
                 var cuil = devuelve[0];
-                var tipocliente = devuelve[1];
+                var tipo = devuelve[1];
                 $("#inputcuilcliente").val(cuil);
-                $("#inputtipocliente").val(tipocliente);
+                $("#inputtipo").val(tipo);
             });
     });
     </script>

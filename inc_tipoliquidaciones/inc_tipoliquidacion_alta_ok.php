@@ -4,7 +4,8 @@
 	$descripcion=$_POST['descripcion'];
 	$idconcepto=$_POST['selectedconcepto'];
 
-	$alta_tipoliquidacion=mysql_query("INSERT INTO tipoliquidacion (descripcion) VALUES ('$descripcion')");
+	$alta_tipoliquidacion="INSERT INTO tipoliquidacion (descripcion) VALUES ('$descripcion')";
+	mysql_query($alta_tipoliquidacion) or die(mysql_error());
 
   $ultimo_tipoliquidacion = mysql_query("SELECT MAX(idtipoliquidacion) AS idtipoliquidacion FROM tipoliquidacion");
 	$row_ultimo=mysql_fetch_array($ultimo_tipoliquidacion);

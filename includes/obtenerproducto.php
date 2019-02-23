@@ -1,7 +1,7 @@
 
 <?php
 $hostname_conexion_smile = "localhost";
-$database_conexion_smile = "db_smile";
+$database_conexion_smile = "db_compu_nuevo";
 $username_conexion_smile = "root";
 $password_conexion_smile = "";
 
