@@ -1,13 +1,11 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
-$q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
-?>
-<form class="form" method="POST" action="inc_compras/compras_pdf.php" role="form" >
-  
+<form class="form" method="POST" action="inc_liquidaciones/libro_sueldo_pdf.php" role="form" >
+  <br></br>
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
     </div>
   </div>
+
 
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
 Desde
@@ -23,8 +21,7 @@ Hasta
                           <input type="hidden" name="verifica" id="inputverificafechafin" class="form-control" value="">
 
     </div>
-  <br></br>
-
+<br></br>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <br>
@@ -34,6 +31,3 @@ Hasta
 
     </div>
 </form>
-
-
-<!-- valida que el cliente este registrado si se ingresa condicion de pago cuenta corriente -->
