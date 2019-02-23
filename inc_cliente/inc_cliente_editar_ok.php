@@ -6,7 +6,7 @@
 	$cuilcliente=$_POST['cuilcliente'];
 	$mailcliente=$_POST['mailcliente'];
 	$telefonocliente=$_POST['telefonocliente'];
-	$tipocliente=$_POST['tipocliente']; 
+	$tipo=$_POST['tipo']; 
 
 	$update_cliente="UPDATE cliente SET nombreorsocial='$nombreorsocial', cuilcliente='$cuilcliente', mailcliente='$mailcliente', telefonocliente='$telefonocliente'
 		WHERE idcliente=$idcliente";

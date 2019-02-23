@@ -1,5 +1,5 @@
 <?php mysql_select_db($database_conexion_smile,$conexion_smile);
-  $tipocliente=mysql_query("SELECT * FROM tipocliente");
+  $tipo=mysql_query("SELECT * FROM tipo");
   $venta=mysql_query("SELECT * FROM venta ORDER BY idventa DESC LIMIT 0,1");
   $row_venta=mysql_fetch_array($venta);
   
@@ -39,7 +39,7 @@ Datos del Cliente
       </div>  
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Iva
-          <input type="text" name="itipocliente" id="inputtipocliente" class="form-control" value="Consumidor Final" required="required" readonly>
+          <input type="text" name="itipo" id="inputtipo" class="form-control" value="Consumidor Final" required="required" readonly>
       </div>
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
         Condici&oacute;n Pago:

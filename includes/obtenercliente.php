@@ -1,7 +1,7 @@
 
 <?php
 $hostname_conexion_smile = "localhost";
-$database_conexion_smile = "db_smile";
+$database_conexion_smile = "db_compu_nuevo";
 $username_conexion_smile = "root";
 $password_conexion_smile = "";
 
@@ -12,13 +12,12 @@ mysql_select_db($database_conexion_smile,$conexion_smile);
 
 $idclientejs = $_POST['idclientejs'];
 $q_clientes=mysql_query("SELECT * FROM cliente
-  INNER JOIN tipocliente ON tipocliente_idtipocliente=idtipocliente
+  INNER JOIN tipo ON tipo_idtipo=idtipo
   INNER JOIN direccion ON direccion_iddireccion=iddireccion
   INNER JOIN localidad ON localidad_idlocalidad=idlocalidad
   INNER JOIN provincia ON provincia_idprovincia=idprovincia
   WHERE idcliente=$idclientejs
-  ORDER BY nombreorsocial"); 
+  ORDER BY nombreorsocial");
 $row_cliente=mysql_fetch_array($q_clientes);
-	echo $row_cliente['cuilcliente'].",".$row_cliente['tipoclientenoombre'];
+	echo $row_cliente['cuilcliente'].",".$row_cliente['tiponombre'];
 ?>
-

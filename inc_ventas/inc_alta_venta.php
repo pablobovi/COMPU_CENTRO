@@ -1,17 +1,17 @@
 <?php require_once('Connections/conexion_smile.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <?php mysql_select_db($database_conexion_smile,$conexion_smile);
-	
-	$q_lineas=mysql_query("SELECT * FROM lineaventa 
+
+	$q_lineas=mysql_query("SELECT * FROM lineaventa
 		INNER JOIN producto ON producto_idproducto=idproducto
 		WHERE venta_idventa=$ult_venta");
 
 	$q_cliente=mysql_query("SELECT * FROM cliente
-	INNER JOIN tipocliente ON tipocliente_idtipocliente=idtipocliente
+	INNER JOIN tipo ON tipo_idtipo=idtipo
 		WHERE idcliente=$idcliente");
 	$row_cliente=mysql_fetch_array($q_cliente);
 
-	$q_empleado=mysql_query("SELECT * FROM empleado 
+	$q_empleado=mysql_query("SELECT * FROM empleado
 		WHERE idempleado=$idempleado");
 	$row_empleado=mysql_fetch_array($q_empleado);
 ?>
@@ -43,7 +43,7 @@
 					<td class="info"><div align='right'>Cuil: </div></td>
 					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_cliente['cuilcliente']; ?></td>
 					<td class="info"><div align='right'>Condici&oacute;n IVA: </div></td>
-					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_cliente['tipoclientenoombre']; ?></td>
+					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_cliente['tiponombre']; ?></td>
 				</tr>
 				<tr>
 					<td class="info" ><div class="info" align='right'>Empleado: </div></td>
@@ -52,7 +52,7 @@
 				<tr>
 					<br>
 					<td colspan="6"><div align='center'><strong>Productos</strong></div></td>
-					
+
 				</tr>
 				<tr>
 					<td class="info" align="right">Item</td>
@@ -61,7 +61,7 @@
 					<td class="info" colspan="2" align="right">Importe</td>
 					<td class="info" colspan="2" align="right">Total producto</td>
 				</tr>
-				<?php 
+				<?php
 					$i=1;
 					while ($row_lineas_m=mysql_fetch_array($q_lineas)) {
 						$preciounitario=$row_lineas_m['subtotallineaventa']/$row_lineas_m['cantidad'];
@@ -72,7 +72,7 @@
 							<td align="right"><?php echo $row_lineas_m['cantidad'] ?></td>
 							<td colspan="2" align="right"><?php echo $preciounitario ?></td>
 							<td align="right"><?php echo $row_lineas_m['subtotallineaventa'] ?></td>
-							
+
 						</tr>
 
 					<?php $i++;}
@@ -96,7 +96,7 @@
 				</tr>
 	</table>
 	<div><a href="venta_nueva.php"><strong>Volver a Ventas</strong></a></div>
-	
+
         </div>
     </div>
   <?php include 'inc_footer.php'; ?>

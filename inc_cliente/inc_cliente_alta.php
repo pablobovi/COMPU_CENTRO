@@ -44,7 +44,7 @@
           <select class="form-control" name="inputlocalidad" id="inputlocalidad" required ></select>
       </div>
   </div>
-  
+
 </div>
 
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -84,7 +84,7 @@
     </div>
   </div>
 
-   
+
     <br>
   </div>
   <legend></legend>
@@ -94,6 +94,6 @@
           <button type="submit" class="btn boton-send btn-info pull-right btn-lg">Aceptar</button>
         </div>
       </div>
-  
+
 
 </form>

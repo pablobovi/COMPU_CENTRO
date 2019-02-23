@@ -3,7 +3,7 @@ mysql_select_db($database_conexion_smile,$conexion_smile);
 
 $idempleado=$_GET['idempleado'];
 $iddireccion=$_GET['iddireccion'];
-$empleado="SELECT * FROM empleado 
+$empleado="SELECT * FROM empleado
 INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado=idcategoriaempleado
 INNER JOIN horastrabajadas ON idhotastrabajadas=horastrabajadas_idhorastrabajadas
 WHERE idempleado=$idempleado";
@@ -25,7 +25,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 			<input type="date" name="fechaingresoempleado" id="inputFecha" class="form-control" value="<?php echo $row_empleado['fechaingresoempleado'] ?>" required="required" readonly>
 		</div>
 	</td>
-</tr> 
+</tr>
 
 <tr>
 	<td><div align='right'>Apellido</td>
@@ -34,7 +34,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 			<input class="form-control" type="text" value="<?php echo $row_empleado['apellidoempleado'] ?>" name="apellidoempleado" required>
 		</div>
 	</td>
-</tr> 
+</tr>
 
 <tr>
 	<td><div align='right'>Nombre</td>
@@ -43,7 +43,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 			<input class="form-control" type="text" value="<?php echo $row_empleado['nombreempleado'] ?>" name="nombreempleado" required>
 		</div>
 	</td>
-</tr> 
+</tr>
 
 <tr>
 	<td><div align='right'>Dni</td>
@@ -53,7 +53,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 		</div>
 	</td>
 </tr>
- 
+
 <tr>
 	<td><div align='right'>Cuil</td>
 	<td>
@@ -68,7 +68,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 	<td>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<select name="estadocivilempleado" id="" class="form-control">
-				<?php 
+				<?php
 					if (strcmp ($row_empleado['estadocivilempleado'], "Soltero" ) == 0) { ?>
 						<option value="Soltero" selected>Soltero</option>
 						<option value="Casado">Casado</option>
@@ -82,7 +82,7 @@ $row_empleado= mysql_fetch_array($q_empleado);
 						<option value="Viudo">Viudo</option>
 				<?php	}
 				 ?>
-					
+
         	</select>
 		</div>
 	</td>
@@ -124,5 +124,5 @@ $row_empleado= mysql_fetch_array($q_empleado);
 	<td><input type="submit" class="btn btn-info pull-right" name="button" id="button" value="Modificar"></td>
 </tr>
 
-</form>	
+</form>
 </table>

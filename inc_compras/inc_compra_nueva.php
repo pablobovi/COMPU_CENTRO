@@ -18,13 +18,13 @@ Nombre Proveedor
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Cuil
           <input type="text" name="cuilproveedor" id="inputcuilproveedor" class="form-control" value="00-00000000" required="required" readonly>
-      </div> 
+      </div>
     </div>
     <div class="row control-group">
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Factura n&uacute;mero
           <input type="text" name="numerofactura" id="inputnumerofactura" class="form-control" value="">
-      </div> 
+      </div>
     </div>
   </div>
 <legend></legend>
@@ -61,7 +61,7 @@ Nombre Proveedor
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <br>
   <br>
-  
+
   <button type="submit" class="btn boton-send btn-info pull-right btn-md">Aceptar Compra</button>
 
   <button type="button" id="cancelar" class="btn btn-danger btn-primary pull-left btn-md">Cancelar Compra</button>
@@ -91,4 +91,4 @@ var total = $('#inputsubtotal').val();
           }
         }
 }
-</script> 
+</script>

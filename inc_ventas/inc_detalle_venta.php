@@ -7,7 +7,7 @@
 	$venta="SELECT * FROM venta 
 	INNER JOIN empleado ON empleado_idempleado=idempleado
 	INNER JOIN cliente ON cliente_idcliente=idcliente
-	INNER JOIN tipocliente ON tipocliente_idtipocliente=idtipocliente
+	INNER JOIN tipo ON tipo_idtipo=idtipo
 	WHERE idventa=$idventa";
 	$q_venta=mysql_query($venta);
 	$row_venta=mysql_fetch_array($q_venta);
@@ -38,7 +38,7 @@
 					<td class="info"><div align='right'>Cuil: </div></td>
 					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['cuilcliente']; ?></td>
 					<td class="info"><div align='right'>Condici&oacute;n IVA: </div></td>
-					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['tipoclientenoombre']; ?></td>
+					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['tiponoombre']; ?></td>
 				</tr>
 				<tr>
 					<td class="info" ><div class="info" align='right'>Empleado: </div></td>
