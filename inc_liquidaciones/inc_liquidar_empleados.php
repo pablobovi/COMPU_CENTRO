@@ -59,6 +59,17 @@
     </tr>
 
   <tr>
+    <tr>
+
+      <td><div align='right'>Fecha Deposito</td>
+      <td>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <input type="date" class="form-control" id="fechadeposito" name="fechadeposito" placeholder="Input field">
+        </div>
+      </td>
+    </tr>
+
+  <tr>
       <td><div align='right'>Empleados</td>
       <td>
        <select multiple class='form-control' name="idempleado[]">

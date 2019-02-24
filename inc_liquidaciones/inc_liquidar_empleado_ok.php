@@ -3,11 +3,12 @@
 
   $idliquidacion=$_POST['idliquidacion'];
 	$idempleado=$_POST['idempleado'];
+	$fechadeposito=$_POST['fechadeposito'];
   //$id_tipoliquidacion=$_POST['idtipoliquidacion'];
 
   for ($i=0 ; $i<count($idempleado) ; $i++)
     {
-      $insert_detalleliquidacion="INSERT INTO detalleliquidacion (liquidacion_idliquidacion, empleado_idempleado) VALUES ('$idliquidacion','$idempleado[$i]')";
+      $insert_detalleliquidacion="INSERT INTO detalleliquidacion (fechadeposito, liquidacion_idliquidacion, empleado_idempleado) VALUES ('$fechadeposito','$idliquidacion','$idempleado[$i]')";
 			mysql_query($insert_detalleliquidacion) or die(mysql_error());
 
 			//HACER UNA CONSULTA DE LA ULTIMA FILA DE DETALLE LIQUIDACION PARA LUEGO PONER EL IDDETALLELIQUIDACION EN DETALLE CONCEPTO
