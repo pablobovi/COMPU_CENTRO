@@ -102,14 +102,15 @@ $pdf->Cell(31,8,"Cond. IVA",1,0,'C');
 $pdf->Cell(31,8,"Nro Factura",1,0,'C');
 $pdf->Cell(31,8,"Nombre",1,0,'C');
 $pdf->Cell(31,8,"Apellido",1,0,'C');
-$pdf->Cell(31,8,"IVA",1,0,'C');
 $pdf->Cell(31,8,"Total($)",1,0,'C');
+$pdf->Cell(31,8,"IVA",1,0,'C');
+
 foreach($result as $row) {
   $pdf->SetTextColor(100);
   $pdf->SetFont('Arial','',9);
-$pdf->Ln();
-foreach($row as $column)
-$pdf->Cell(31,8,$column,1,0,'C');
+  $pdf->Ln();
+  foreach($row as $column)
+  $pdf->Cell(31,8,$column,1,0,'C');
 }
 
 $pdf->Ln();
