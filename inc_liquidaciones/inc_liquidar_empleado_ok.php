@@ -9,8 +9,10 @@
     {
       $insert_detalleliquidacion="INSERT INTO detalleliquidacion (liquidacion_idliquidacion, empleado_idempleado) VALUES ('$idliquidacion','$idempleado[$i]')";
 			mysql_query($insert_detalleliquidacion) or die(mysql_error());
-/*
 
+			//HACER UNA CONSULTA DE LA ULTIMA FILA DE DETALLE LIQUIDACION PARA LUEGO PONER EL IDDETALLELIQUIDACION EN DETALLE CONCEPTO
+// ACA TENGO QUE CORTAR PARA Q FUNCIONE EL SISTEMA
+/*
       $q_empleado="SELECT * FROM empleado
 	                 INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado=idcategoriaempleado
 	                 INNER JOIN horastrabajadas ON horastrabajadas_idhorastrabajadas=idhotastrabajadas
@@ -45,11 +47,16 @@
      	}
      	$antiguedad;
 
-      $q_tipoliquidacion_concepto= "SELECT * FROM tipoliquidacion_concepto WHERE tipoliquidacion_dtipoliquidacion=$id_tipoliquidacion";
+      $q_tipoliquidacion_concepto= "SELECT concepto_idconcepto FROM tipoliquidacion_concepto WHERE tipoliquidacion_dtipoliquidacion=$id_tipoliquidacion";
       $row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion);
 
+      for ($j=0 ; $j<count($concepto_idconcepto) ; $j++){
 
-      for ($j=0 ; $j<count($tipoliquidacion_idtipoliquidacion) ; $j++){
+				if () // fijarse que tipo de concepto
+							// guardar el total ya sea un porcentaje o un monto fijo en una variable para que
+							// lo pueda meter dentro de sub total
+				$insert_detalleconcepto="INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion) VALUES ('$idliquidacion','$idempleado[$i]')";
+				mysql_query($insert_detalleliquidacion) or die(mysql_error());
 
 
       }
