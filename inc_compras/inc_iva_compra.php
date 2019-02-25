@@ -2,11 +2,11 @@
 $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
 ?>
 <form class="form" method="POST" action="inc_compras/compras_pdf.php" role="form" >
-<<<<<<< HEAD
 
-=======
+
+
   
->>>>>>> 713c6019a152286b512c25cfeadd1e3f6e7a75b8
+
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
