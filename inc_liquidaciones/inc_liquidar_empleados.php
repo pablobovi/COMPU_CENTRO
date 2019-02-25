@@ -15,7 +15,7 @@
 <table class='table table-bordered table-striped'>
 <form class="" action="liquidacion_editar_ok_nuevo.php" method="POST">
   <input type="hidden" name="idliquidacion" id="" class="form-control" value="<?php echo $idliquidacion; ?>">
-  <input type="hidden" name="id_tipoliquidacion" id="" class="form-control" value="<?php echo $id_tipoliquidacion; ?>">
+  <input type="hidden" name="idtipoliquidacion" id="" class="form-control" value="<?php echo $idtipoliquidacion; ?>">
 
   <div class="form-group">
     <tr>

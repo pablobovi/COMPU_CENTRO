@@ -4,7 +4,7 @@
   $idliquidacion=$_POST['idliquidacion'];
 	$idempleado=$_POST['idempleado'];
 	$fechadeposito=$_POST['fechadeposito'];
-  //$id_tipoliquidacion=$_POST['idtipoliquidacion'];
+  $idtipoliquidacion=$_POST['idtipoliquidacion'];
 
   for ($i=0 ; $i<count($idempleado) ; $i++)
     {
@@ -13,11 +13,12 @@
 
 			//HACER UNA CONSULTA DE LA ULTIMA FILA DE DETALLE LIQUIDACION PARA LUEGO PONER EL IDDETALLELIQUIDACION EN DETALLE CONCEPTO
 // ACA TENGO QUE CORTAR PARA Q FUNCIONE EL SISTEMA
-/*
-      $q_empleado="SELECT * FROM empleado
+
+      $q_empleado=mysql_query("SELECT * FROM empleado
 	                 INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado=idcategoriaempleado
 	                 INNER JOIN horastrabajadas ON horastrabajadas_idhorastrabajadas=idhotastrabajadas
-	                 WHERE idempleado=$idempleado[$i]";
+	                 WHERE idempleado=$idempleado[$i]")
+		 or die(mysql_error());
       $row_empleados=mysql_fetch_array($q_empleado);
   //CALCULO EL SUELDO DEPENDIENDO SI EL EMPLEADO TRABAJA 8 O 4 HS
       $jornadaempleado=$row_empleados['cantidadhoras'];
@@ -48,24 +49,63 @@
      	}
      	$antiguedad;
 
-      $q_tipoliquidacion_concepto= "SELECT concepto_idconcepto FROM tipoliquidacion_concepto WHERE tipoliquidacion_dtipoliquidacion=$id_tipoliquidacion";
-      $row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion);
 
-      for ($j=0 ; $j<count($concepto_idconcepto) ; $j++){
+      $q_tipoliquidacion_concepto=mysql_query("SELECT * FROM tipoliquidacion_concepto
+			INNER JOIN concepto ON concepto_idconcepto= idconcepto
+			WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion") or die(mysql_error());
+			$row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion_concepto);
+			$idconcepto=$row_tipoliquidacion_concepto['idconcepto'];
 
-				if () // fijarse que tipo de concepto
+				for ($j=0 ; $j<count($idconcepto) ; $j++){
+					$q_concepto= mysql_query("SELECT * FROM concepto WHERE idconcepto=$idconcepto[$j]")
+					or die(mysql_error());
+					$row_concepto=mysql_fetch_array($q_concepto);
+					if ($row_concepto['montofijo']==0){//entonces es un porcentaje
+
+						$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+					}
+					else {
+					$totalconcepto=$row_concepto['montofijo'];
+					}
+
+					$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion) VALUES ('$totalconcepto','$idliquidacion','$idempleado[$i]')");
+
 							// guardar el total ya sea un porcentaje o un monto fijo en una variable para que
 							// lo pueda meter dentro de sub total
-				$insert_detalleconcepto="INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion) VALUES ('$idliquidacion','$idempleado[$i]')";
-				mysql_query($insert_detalleliquidacion) or die(mysql_error());
+			}
+			//PARA DAR DE ALTA EN DETALLE LIQUIDACION en debe y haber, tengo q hacer la sumatoria de tdos los conceptos
+				$q_detalleconcepto=mysql_query("SELECT * FROM detalleconcepto WHERE concepto_idconcepto='$idconcepto'")
+				or die(mysql_error());
+
+						$haber=0;
+						$debe=0;
+						$tipoconcepto=$row_concepto['tipoconcepto'];
+						while ($row_detalleconcepto=mysql_fetch_array($q_detalleconcepto)) {
+							if ($tipoconcepto=1){ // fijarse que tipo de concepto
+								$haber=$row_detalleconcepto['subtotal']+$haber;
+
+									}//SE AGREGA AL HABER
+							else
+							 {
+								 $debe=$row_detalleconcepto['subtotal']+$debe;
+							 }//se agrega al debe
+							 $pagototal=$basicoempleado+$haber-$debe;
+						 }
+
+						 $q_ult_detalleliquidacion = mysql_query("SELECT MAX(iddetalleliquidacion) AS iddetalleliquidacion FROM detalleliquidacion")
+						 or die(mysql_error());
+						 $row_ult_detalleliquidacion=mysql_fetch_array($q_ult_detalleliquidacion);
+						 $ult_detalleliq=$row_ult_detalleliquidacion['iddetalleliquidacion'];
+
+						 $update_detalleliquidacion=mysql_query("UPDATE detalleliquidacion
+							 SET  totaldebe=$debe, totalhaber=$haber, pagototal=$pagototal
+							 WHERE iddetalleliquidacion=$ult_detalleliq")
+							 or die(mysql_error());
 
 
-      }
-
-*/
 		  		}
 		?>
-?>
+
 
 <?php //si el tipo liquidacion se carga ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
