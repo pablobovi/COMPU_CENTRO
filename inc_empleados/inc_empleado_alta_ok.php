@@ -11,6 +11,7 @@
 	$fechaingresoempleado=date('Y-m-d H:i:s');
 	$telefonoempleado=$_POST['telefonoempleado'];
 	$horastrabajadas=$_POST['horastrabajadas'];
+	$nivel=$_POST['nivel'];
 	
 	
 	$inputlocalidad=$_POST['inputlocalidad'];
@@ -33,8 +34,8 @@
 	$row_ult_empleado=mysql_fetch_array($q_ult_empleado);
 	$ult_empleado=$row_ult_empleado['idempleado'];
 
-	$alta_usuario=mysql_query("INSERT INTO usuario (nombreusuario, password, tipousuario, empleado_idempleado) 
-	VALUES ('$nombreempleado', MD5('12345'), '2', '$ult_empleado')");
+	$alta_usuario=mysql_query("INSERT INTO usuario (nombreusuario, password, tipousuario, empleado_idempleado, nivel) 
+	VALUES ('$nombreempleado', MD5('12345'), '2', '$ult_empleado', $nivel)");
 	
 ?>
 

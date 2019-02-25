@@ -25,6 +25,7 @@
                $_SESSION["usuarioactual"] = mysql_result($myclave,0,1);
                $_SESSION["tipo_usuario"] = mysql_result($myclave,0,3);
                $_SESSION["idempleado"] = mysql_result($myclave,0,4);
+               $_SESSION["nivel"] = mysql_result($myclave,0,6);
 
                //nombre del usuario logueado.
                $formato = 'Y-m-d H:i:s';
@@ -32,6 +33,10 @@
                $dateformat = date_format($fecha, $formato);
                $_SESSION["fechalogin"] = $dateformat;
                $idempleado=$_SESSION["idempleado"];
+<<<<<<< HEAD
+=======
+               $nivelempleado=$_SESSION["nivel"];
+>>>>>>> 8c1a2be892e93684c24efcc9710310499a5dc46e
                $insertlogin="INSERT INTO asistencia (empleado_idempleado, login)
                VALUES ('$idempleado','$dateformat')";
                $q_insertarlogin = mysql_query($insertlogin);
