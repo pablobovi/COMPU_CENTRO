@@ -2,12 +2,12 @@
 <?php include('sis_acceso_ok.php'); ?>
 <!doctype html>
 <html lang="es">
-<head>    
+<head>
   <?php include "sis_header.php" ?>
 </head>
 <body class=" theme-blue">
   <?php include "sis_script.php" ?>
-  <?php include "sis_menu_usuario.php" ?>   
+  <?php include "sis_menu_usuario.php" ?>
   <?php include "sis_menu.php" ?>
 
 <div class="content">
@@ -15,21 +15,21 @@
     <h1 class="page-title">Liquidaciones</h1>
   </div>
   <div class="main-content">
-    <!-- Contenido principal --> 
+    <!-- Contenido principal -->
     <br>
     <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in">        
+      <div class="tab-pane active in">
       <?php  include "includes/buscador/inc_buscador_liquidaciones.php" ?>  
-      <br/> 
+      <br/>
       <?php include "inc_liquidaciones/inc_liquidaciones_query.php" ?>
-      <?php include "inc_liquidaciones/inc_liquidaciones_grid.php"; ?>         
-      </div>      
-    </div>     
+      <?php include "inc_liquidaciones/inc_liquidaciones_grid.php"; ?>
+      </div>
+    </div>
 
     <?php include "inc_footer.php" ?>
   </div>
 </div>
-<?php include "sis_script_bootstrap.php" ?> 
-  
+<?php include "sis_script_bootstrap.php" ?>
+
 </body>
 </html>
