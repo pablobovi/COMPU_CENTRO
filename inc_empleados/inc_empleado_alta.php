@@ -68,6 +68,20 @@
     </div>
   </div>
 
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        Nivel
+        <div class="clearfix"></div>
+        <select name="nivel" id="" class="form-control">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    </div>
+  </div>
+
     <div class="row control-group">
     <div class="form-group floating-label-form-group controls col-xs-12 col-sm-12 col-md-6 col-lg-6">
         Horas Trabajadas
