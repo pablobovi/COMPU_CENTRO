@@ -63,7 +63,7 @@
 																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
 																	or die(mysql_error());
 
-				$q_presentismo=													
+				$q_presentismo=
 				$presentismo=1;
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
@@ -81,6 +81,8 @@
 					else{
 						if($row_concepto['idconcepto']==12 && $presentismo=1){
 							$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+
+							alkjsdlkajsdlkasd
 						}
 						else{
 
@@ -122,15 +124,15 @@
 							 																			SET  totaldebe=$debe, totalhaber=$haber, pagototal=$pagototal
 							 																			WHERE iddetalleliquidacion=$ult_detalleliq")
 																				or die(mysql_error());
-			/*CALCULAR SALARIO POR HIJO*/ 
+			/*CALCULAR SALARIO POR HIJO*/
 			$q_grupofamiliar=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar WHERE empleado_idempleado=$idempleado[$i]")
-			or die(mysql_error());	
+			or die(mysql_error());
 			$subtotal_asignacionporhijo=0;
 			while($row=mysqli_fetch_assoc($q_grupofamiliar)){
 				if($row['parentesco_idparentesco']==5)
 				$subtotal_asignacionporhijo=$basicoempleado + 500;
 			}
-			
+
 		}
 
 		?>
