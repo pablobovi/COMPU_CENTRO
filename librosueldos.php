@@ -11,7 +11,7 @@
 	<?php include "sis_menu.php" ?>
 	<div class="content">
 		<div class="header">
-			<h1 class="page-title">IVA Venta</h1>
+			<h1 class="page-title">Libro Sueldos</h1>
 		</div>
 		<div class="main-content">
 			<!-- Contenido principal -->
