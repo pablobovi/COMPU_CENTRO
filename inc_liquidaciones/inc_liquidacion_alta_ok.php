@@ -74,7 +74,7 @@
 
         $conceptos=mysql_query("SELECT * FROM concepto WHERE idconcepto IN ($idconcepto[$j]) estado=1");
      	while ($row_conceptos=mysql_fetch_array($conceptos)) {
-     		if ($row_conceptos['idconcepto']==2) {
+     		if ($row_conceptos['idconceptfo']==2) {
      			$cantidad=$antiguedad;
      		}
      		else{

@@ -4,7 +4,7 @@
 	$idcliente=$_GET['idcliente'];
 	$idempleado=$_GET['idempleado'];
 
-	$venta="SELECT * FROM venta 
+	$venta="SELECT * FROM venta
 	INNER JOIN empleado ON empleado_idempleado=idempleado
 	INNER JOIN cliente ON cliente_idcliente=idcliente
 	INNER JOIN tipo ON tipo_idtipo=idtipo
@@ -12,7 +12,7 @@
 	$q_venta=mysql_query($venta);
 	$row_venta=mysql_fetch_array($q_venta);
 
-	$q_lineas=mysql_query("SELECT * FROM lineaventa 
+	$q_lineas=mysql_query("SELECT * FROM lineaventa
 		INNER JOIN producto ON producto_idproducto=idproducto
 		WHERE venta_idventa=$idventa");
 
@@ -23,7 +23,7 @@
 <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="panel panel-default">
         <p class="panel-heading no-collapse"><i class="fa fa-check" aria-hidden="true"></i>
-         Smile-Venta detalle</p>
+         Venta detalle</p>
         <div class="panel-body">
             <table class='table table-bordered table-striped'>
 				<tr>
@@ -47,7 +47,7 @@
 				<tr>
 					<br>
 					<td colspan="6"><div align='center'><strong>Productos</strong></div></td>
-					
+
 				</tr>
 				<tr>
 					<td class="info" align="right">Item</td>
@@ -56,7 +56,7 @@
 					<td class="info" colspan="2" align="right">Importe</td>
 					<td class="info" colspan="2" align="right">Total producto</td>
 				</tr>
-				<?php 
+				<?php
 					$i=1;
 					while ($row_lineas_m=mysql_fetch_array($q_lineas)) {
 						$preciounitario=$row_lineas_m['subtotallineaventa']/$row_lineas_m['cantidad'];
@@ -67,7 +67,7 @@
 							<td align="right"><?php echo $row_lineas_m['cantidad'] ?></td>
 							<td colspan="2" align="right"><?php echo $preciounitario ?></td>
 							<td align="right"><?php echo $row_lineas_m['subtotallineaventa'] ?></td>
-							
+
 						</tr>
 
 					<?php $i++;}
@@ -98,7 +98,7 @@
 				</tr>
 	</table>
 	<div><a href="historico_ventas.php"><strong>Volver a Ventas</strong></a></div>
-	
+
         </div>
     </div>
   <?php include 'inc_footer.php'; ?>

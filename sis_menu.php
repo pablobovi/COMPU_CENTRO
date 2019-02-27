@@ -20,8 +20,12 @@
     <li><a href="historico_compras.php"><span class="fa fa-caret-right"></span> Listado de compras </a></li>
   </ul>
 </li>
+<<<<<<< HEAD
+
+=======
 <?php } ?>
 <?php if($_SESSION["nivel"]==5){ ?>
+>>>>>>> 8c1a2be892e93684c24efcc9710310499a5dc46e
 <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-edit"></i> Liquidaci&oacute;n de sueldos<i class="fa fa-collapse"></i></a></li>
 <li>
   <ul class="legal-menu nav nav-list collapse">

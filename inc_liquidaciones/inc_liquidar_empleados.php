@@ -15,7 +15,7 @@
 <table class='table table-bordered table-striped'>
 <form class="" action="liquidacion_editar_ok_nuevo.php" method="POST">
   <input type="hidden" name="idliquidacion" id="" class="form-control" value="<?php echo $idliquidacion; ?>">
-  <input type="hidden" name="id_tipoliquidacion" id="" class="form-control" value="<?php echo $id_tipoliquidacion; ?>">
+  <input type="hidden" name="idtipoliquidacion" id="" class="form-control" value="<?php echo $idtipoliquidacion; ?>">
 
   <div class="form-group">
     <tr>
@@ -54,6 +54,17 @@
       <td>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <input type="date" name="fechahasta" id="inputFechaHasta" class="form-control" value="<?php echo $row_liquidacion['hasta'] ?>" required="required" readonly>
+        </div>
+      </td>
+    </tr>
+
+  <tr>
+    <tr>
+
+      <td><div align='right'>Fecha Deposito</td>
+      <td>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <input type="date" class="form-control" id="fechadeposito" name="fechadeposito" placeholder="Input field">
         </div>
       </td>
     </tr>
