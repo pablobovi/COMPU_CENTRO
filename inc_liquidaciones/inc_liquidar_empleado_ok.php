@@ -63,7 +63,7 @@
 																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
 																	or die(mysql_error());
 
-				$q_presentismo=
+				$q_presentismo=0;
 				$presentismo=1;
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
@@ -82,7 +82,7 @@
 						if($row_concepto['idconcepto']==12 && $presentismo=1){
 							$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
 
-							alkjsdlkajsdlkasd
+
 						}
 						else{
 
