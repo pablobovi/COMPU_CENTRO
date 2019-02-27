@@ -76,7 +76,7 @@
     <?php
     while ($row_empleado=mysql_fetch_array($q_empleado)){
       ?>
-      <option value="<?php echo $row_empleado['idempleado']?>"><?php echo $row_empleado['apellidoempleado'] ?></option>
+      <option value="<?php echo $row_empleado['idempleado']?>"><?php echo $row_empleado['apellidoempleado'].", ".$row_empleado['nombreempleado'] ?></option>
     <?php      }?>
     ...
     </select><br>

@@ -8,6 +8,9 @@
   <option value="0">Tipo de Liquidacion</option>
   <?php
   while ($row_tipoliquidacion = mysql_fetch_array($q_tipoliquidacion)) {?>
-    <option value="<?php echo $row_tipoliquidacion['idtipoliquidacion']?>"> <?php echo $row_tipoliquidacion['descripcion'] ?> </option>
+    <option value="<?php echo $row_tipoliquidacion['idtipoliquidacion']?>"> 
+    <?php echo $row_tipoliquidacion['descripcion'] ?> </option>
 <?php } ?>
   </select>
+  <?php echo $row_tipoliquidacion['id'] ?> </option>
+  
