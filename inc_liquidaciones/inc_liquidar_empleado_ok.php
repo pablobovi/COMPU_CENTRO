@@ -64,10 +64,20 @@
 																	or die(mysql_error());
 
 				$presentismo=1;
-//CALCULAR CANTIDAD DE GRUPO FAMILIAR
-				$grupo_fam=mysql_query("SELECT * FROM grupofamiliar WHERE empleado_idempleado=$row_empleados[idempleado]");
+//Salario familir
+				$grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
+																WHERE empleado_idempleado=$row_empleados[idempleado]");
 				$cant_grupo_fam= mysql_num_rows($grupo_fam);
-
+				$hijos=0;
+				$hijosdis=0;
+				while($cant_grupo_fam){
+					if ($cant_grupo_fam['parentesco_idparentesco']==4){
+						$hijos=$hijos+1;
+					}
+						else {
+						$hijosdis=$hijosdis+1;
+						}
+				}
 
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
@@ -78,25 +88,35 @@
 																			WHERE idconcepto=$idconcepto")
 												or die(mysql_error());
 					$row_concepto=mysql_fetch_array($q_concepto);
-					if ($row_concepto['idconcepto']==2){
 
-						$totalconcepto=$antiguedad*$row_concepto['montofijo'];
-					}
-					else{
-						if($row_concepto['idconcepto']==12 && $presentismo=1){
-							$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
-						}
-						else{
-
-								if ($row_concepto['montofijo']==0)//entonces es un porcentaje
-											{
+					switch ($row_concepto['idconcepto']) {
+					            case 2:
+					                 $totalconcepto=$antiguedad*$row_concepto['montofijo'];
+					                break;
+											case 12:
+													if($presentismo=1)
+													 	$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+														break;
+											case 11:
+												$totalconcepto=$hijos*$row_concepto['montofijo'];
+												break;
+											case 15:
+													$totalconcepto=$hijosdis*$row_concepto['montofijo'];
+												break;
+											case 14:
 												$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+												break;
+											default:
+											if ($row_concepto['montofijo']==0)//entonces es un porcentaje
+														{
+															$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+														}
+											else 	{
+															$totalconcepto=$row_concepto['montofijo'];
+														}
 											}
-								else 	{
-												$totalconcepto=$row_concepto['montofijo'];
-											}
-								}
-						}
+
+
 								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
 																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
 		}
