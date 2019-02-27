@@ -136,6 +136,6 @@ else { ?>
 <div ><img src="images/icono_ok_grande.png"></div>
 <div class="clearfix">
 </div>
-<a href="liquidaciones.php">Volver</a>
+<a href="liquidar.php">Volver</a>
    <?php }
 ?>

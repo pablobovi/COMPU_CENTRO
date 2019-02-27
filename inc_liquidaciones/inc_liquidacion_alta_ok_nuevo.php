@@ -21,5 +21,5 @@
 <div ><img src="images/icono_ok_grande.png"></div>
 <div class="clearfix">
 </div>
-<a href="tipo_liquidaciones.php">Volver</a>
+<a href="liquidar.php">Volver</a>
 <?php //Si no se carga mostrtar error?>

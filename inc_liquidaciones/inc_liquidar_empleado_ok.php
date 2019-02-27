@@ -57,27 +57,30 @@
      					}
      			$antiguedad;
 
-// CONSULTO LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION QUE TRAIGO DE LA VENTANA LIQUIDACION
-      $q_tipoliquidacion_concepto=mysql_query("SELECT * FROM tipoliquidacion_concepto
-																							INNER JOIN concepto ON concepto_idconcepto= idconcepto
-																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
-																	or die(mysql_error());
 
 				$presentismo=1;
 //Salario familir
-				$grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
-																WHERE empleado_idempleado=$row_empleados[idempleado]");
+$grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
+																WHERE empleado_idempleado=$row_empleados[idempleado]")or die(mysql_error());
 				$cant_grupo_fam= mysql_num_rows($grupo_fam);
+
+
 				$hijos=0;
 				$hijosdis=0;
-				while($cant_grupo_fam){
-					if ($cant_grupo_fam['parentesco_idparentesco']==4){
+				while($row=mysql_fetch_assoc($grupo_fam)){
+					if ($row['parentesco_idparentesco']==4){
 						$hijos=$hijos+1;
 					}
 						else {
 						$hijosdis=$hijosdis+1;
 						}
 				}
+
+// CONSULTO LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION QUE TRAIGO DE LA VENTANA LIQUIDACION
+				      $q_tipoliquidacion_concepto=mysql_query("SELECT * FROM tipoliquidacion_concepto
+																											INNER JOIN concepto ON concepto_idconcepto= idconcepto
+																											WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
+																					or die(mysql_error());
 
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
@@ -89,6 +92,8 @@
 												or die(mysql_error());
 					$row_concepto=mysql_fetch_array($q_concepto);
 
+					$cant_concepto=1;
+
 					switch ($row_concepto['idconcepto']) {
 					            case 2:
 					                 $totalconcepto=$antiguedad*$row_concepto['montofijo'];
@@ -99,10 +104,15 @@
 														break;
 											case 11:
 												$totalconcepto=$hijos*$row_concepto['montofijo'];
+												$cant_concepto=$hijos;
 												break;
 											case 15:
 													$totalconcepto=$hijosdis*$row_concepto['montofijo'];
+													$cant_concepto=$hijosdis;
 												break;
+												case 16:
+														$totalconcepto=$basicoempleado;
+													break;
 											case 14:
 												$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
 												break;
@@ -117,30 +127,35 @@
 											}
 
 
-								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
-																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
-		}
+								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion, cantidad)
+																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq','$cant_concepto')");
+
+						}
 			/*PARA AGREGAR EN DETALLELIQUIDACION DEBE, HABER Y PAGO TOTAL, DEBO ANALIZAR QUE TIPO DE CONCEPTO ES:
 			YA SEA UN APORTE = 1 O RETENCION =0. LUEGO LO INCREMENTO EN LA VARIABLE DEBE O HABER.
 			----SUMO BASISCO Y RESTO HABER-DEBE PARA OBTENER EL PAGO TOTAL*/
-				$q_detalleconcepto=mysql_query("SELECT * FROM detalleconcepto WHERE detalleliquidacion_iddetalleliquidacion='$ult_detalleliq'")
+				$q_detalleconcepto=mysql_query("SELECT * FROM detalleconcepto
+													INNER JOIN concepto ON concepto_idconcepto=idconcepto
+													WHERE detalleliquidacion_iddetalleliquidacion='$ult_detalleliq'")
 				or die(mysql_error());
 
 						$haber=0;
 						$debe=0;
-						$tipoconcepto=$row_concepto['tipoconcepto'];
+
 						while ($row_detalleconcepto=mysql_fetch_array($q_detalleconcepto)) {
-							if ($tipoconcepto==0){ // fijarse que tipo de concepto
+
+							if ($row_detalleconcepto['tipoconcepto']==0){ // fijarse que tipo de concepto
 								$haber=$row_detalleconcepto['subtotal']+$haber;
 
 									}//SE AGREGA AL HABER
-							else
+
+							if($row_detalleconcepto['tipoconcepto']==1)
 							 {
 								 $debe=$row_detalleconcepto['subtotal']+$debe;
 							 }//se agrega al debe
-							 $pagototal=$basicoempleado+$haber-$debe;
-						 }
 
+						 }
+       $pagototal=$haber-$debe;
 
 						 $update_detalleliquidacion=mysql_query("UPDATE detalleliquidacion
 							 																			SET  totaldebe=$debe, totalhaber=$haber, pagototal=$pagototal
