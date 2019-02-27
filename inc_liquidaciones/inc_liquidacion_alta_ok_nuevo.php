@@ -10,7 +10,6 @@
 
 	$alta_tipoliquidacion="INSERT INTO liquidacion (fechaliquidacion, desde, hasta, tipoliquidacion_idtipoliquidacion, descripcionliq, estado) VALUES ('$fechaliquidacion', '$fechadesde', '$fechahasta', '$tipoliquidacion', '$descripcion', 1)";
 	mysql_query($alta_tipoliquidacion) or die(mysql_error());
-echo "prueba";
 		?>
 
 
