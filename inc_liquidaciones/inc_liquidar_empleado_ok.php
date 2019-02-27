@@ -18,7 +18,7 @@
 																			or die(mysql_error());
 					$row_ult_detalleliquidacion=mysql_fetch_array($q_ult_detalleliquidacion);
 		 			$ult_detalleliq=$row_ult_detalleliquidacion['iddetalleliquidacion'];
-					
+
 
 //saco los datos del empleado para calcular el basico
 	  			$q_empleado=mysql_query("SELECT * FROM empleado
@@ -62,16 +62,22 @@
 																							INNER JOIN concepto ON concepto_idconcepto= idconcepto
 																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
 																	or die(mysql_error());
-			$row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion_concepto);
-			$idconcepto=$row_tipoliquidacion_concepto['idconcepto']; //OBTENGO LOS ID DE LOS CONCEPTOS
+
 
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
-				for ($j=0 ; $j<count($idconcepto) ; $j++){
-						$q_concepto= mysql_query("SELECT * FROM concepto
+
+				while($row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion_concepto)){
+					$idconcepto=$row_tipoliquidacion_concepto['concepto_idconcepto'];
+
+					$q_concepto= mysql_query("SELECT * FROM concepto
 																			WHERE idconcepto=$idconcepto")
 												or die(mysql_error());
 					$row_concepto=mysql_fetch_array($q_concepto);
+					if ($row_concepto['idconcepto']==2){
 
+						$totalconcepto=$antiguedad*$row_concepto['montofijo'];
+					}
+					else{
 								if ($row_concepto['montofijo']==0)//entonces es un porcentaje
 											{
 												$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
@@ -79,11 +85,10 @@
 								else 	{
 												$totalconcepto=$row_concepto['montofijo'];
 											}
-
-					$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
-																								VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
-			}
-
+								}
+								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
+																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
+		}
 			/*PARA AGREGAR EN DETALLELIQUIDACION DEBE, HABER Y PAGO TOTAL, DEBO ANALIZAR QUE TIPO DE CONCEPTO ES:
 			YA SEA UN APORTE = 1 O RETENCION =0. LUEGO LO INCREMENTO EN LA VARIABLE DEBE O HABER.
 			----SUMO BASISCO Y RESTO HABER-DEBE PARA OBTENER EL PAGO TOTAL*/
