@@ -12,16 +12,19 @@
 	$telefonoempleado=$_POST['telefonoempleado'];
 	$horastrabajadas=$_POST['horastrabajadas'];
 	$nivel=$_POST['nivel'];
+<<<<<<< HEAD
+=======
 	
 	
+>>>>>>> 8e85db407c63eb3d2a1c85b1230d8e71578b5397
 	$inputlocalidad=$_POST['inputlocalidad'];
 	$barrio=$_POST['barrio'];
 	$manzana=$_POST['manzana'];
 	$calle=$_POST['calle'];
 	$numero=$_POST['numero'];
-	
-	$alta_direccion=mysql_query("INSERT INTO direccion (calle, numero, manzana, barrio, localidad_idlocalidad) 
-		VALUES ('$calle', '$numero', '$manzana', '$barrio', '$inputlocalidad')");	
+
+	$alta_direccion=mysql_query("INSERT INTO direccion (calle, numero, manzana, barrio, localidad_idlocalidad)
+		VALUES ('$calle', '$numero', '$manzana', '$barrio', '$inputlocalidad')");
 
 	$q_ultimadireccion=mysql_query("SELECT * FROM direccion ORDER BY iddireccion DESC LIMIT 0,1");
 	$row_ultimadireccion=mysql_fetch_array($q_ultimadireccion);
@@ -34,9 +37,15 @@
 	$row_ult_empleado=mysql_fetch_array($q_ult_empleado);
 	$ult_empleado=$row_ult_empleado['idempleado'];
 
+<<<<<<< HEAD
+	$alta_usuario=mysql_query("INSERT INTO usuario (nombreusuario, password, tipousuario, empleado_idempleado, nivel)
+	VALUES ('$nombreempleado', MD5('12345'), '2', '$ult_empleado', $nivel)");
+
+=======
 	$alta_usuario=mysql_query("INSERT INTO usuario (nombreusuario, password, tipousuario, empleado_idempleado, nivel) 
 	VALUES ('$nombreempleado', MD5('12345'), '2', '$ult_empleado', $nivel)");
 	
+>>>>>>> 8e85db407c63eb3d2a1c85b1230d8e71578b5397
 ?>
 
 <?php //si  se carga ?>
