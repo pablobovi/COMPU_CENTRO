@@ -63,7 +63,8 @@
 																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
 																	or die(mysql_error());
 
-
+				$q_presentismo=													
+				$presentismo=1;
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
 				while($row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion_concepto)){
@@ -78,6 +79,11 @@
 						$totalconcepto=$antiguedad*$row_concepto['montofijo'];
 					}
 					else{
+						if($row_concepto['idconcepto']==12 && $presentismo=1){
+							$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+						}
+						else{
+
 								if ($row_concepto['montofijo']==0)//entonces es un porcentaje
 											{
 												$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
@@ -86,6 +92,7 @@
 												$totalconcepto=$row_concepto['montofijo'];
 											}
 								}
+						}
 								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
 																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
 					}

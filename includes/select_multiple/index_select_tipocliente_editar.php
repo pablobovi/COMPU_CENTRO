@@ -7,9 +7,9 @@
     <?php
 		while ($row_tipo = mysql_fetch_array($q_tipo)) {
 			if ($row_cliente['tipo_idtipo']==$row_tipo['idtipo']) {?>
-				<option value="<?php echo $row_tipo['idtipo']?>" selected> <?php echo $row_tipo['tiponoombre'] ?> </option>
+				<option value="<?php echo $row_tipo['idtipo']?>" selected> <?php echo $row_tipo['tiponombre'] ?> </option>
 	<?php 	} else{ ?>
-<option value="<?php echo $row_tipo['idtipo']?>"> <?php echo $row_tipo['tiponoombre'] ?> </option>
+<option value="<?php echo $row_tipo['idtipo']?>"> <?php echo $row_tipo['tiponombre'] ?> </option>
 	<?php }
 		}?>
     </select>
