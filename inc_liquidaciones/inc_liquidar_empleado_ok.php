@@ -18,6 +18,7 @@
 																			or die(mysql_error());
 					$row_ult_detalleliquidacion=mysql_fetch_array($q_ult_detalleliquidacion);
 		 			$ult_detalleliq=$row_ult_detalleliquidacion['iddetalleliquidacion'];
+					
 
 //saco los datos del empleado para calcular el basico
 	  			$q_empleado=mysql_query("SELECT * FROM empleado
