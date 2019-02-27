@@ -44,22 +44,22 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
   	$fecha_desde = $_POST['fechadesde'];
     $fecha_hasta = $_POST['fechahasta'];
 
-  $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fecha,totalhaber,totaldebe,pagototal FROM detalleliquidacion
-     INNER JOIN empleado on empleado_idempleado=idempleado
-      where fecha >= '$fecha_desde' && fecha <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
+  $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
+  INNER JOIN empleado on empleado_idempleado=idempleado
+      where fechadeposito >= '$fecha_desde' && fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
 
 }else {
   if (isset($_POST['fechadesde']) && $_POST['fechadesde']!='') {
     $fecha_desde = $_POST['fechadesde'];
-    $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fecha,totalhaber,totaldebe,pagototal FROM detalleliquidacion
-       INNER JOIN empleado on empleado_idempleado=idempleado
-        where fecha >= '$fecha_desde'") or die("database error:". mysqli_error($connString));
+    $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
+    INNER JOIN empleado on empleado_idempleado=idempleado
+        where fechadeposito >= '$fecha_desde'") or die("database error:". mysqli_error($connString));
   } else {
       if (isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
         $fecha_hasta = $_POST['fechahasta'];
-        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fecha,totalhaber,totaldebe,pagototal FROM detalleliquidacion
-           INNER JOIN empleado on empleado_idempleado=idempleado
-            where fecha <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
+        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
+        INNER JOIN empleado on empleado_idempleado=idempleado
+            where fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
       } else{
         $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
            INNER JOIN empleado on empleado_idempleado=idempleado") or die("database error:". mysqli_error($connString));
@@ -67,12 +67,6 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
       }
   }
 }
-// $total = 0;
-// while($row=mysqli_fetch_assoc($result))
-//   {
-//     $total = $total + $row['pagototal'];
-//         echo $row['pagototal'];
-//   }
 
 $pdf = new PDF();
 //header
@@ -95,7 +89,7 @@ $pdf->Cell(22,6,"Asignacion por Hijo",1,0,'C');
 $pdf->Cell(22,6,"Presentismo",1,0,'C');
 $pdf->Cell(22,6,"Salario Familiar",1,0,'C');
 $pdf->Cell(22,6,"Subsidio de Sepelio",1,0,'C');
-$pdf->Cell(22,6,"Subsidio Familiar",1,0,'C');
+$pdf->Cell(22,6,"Aporte Pam",1,0,'C');
 $pdf->Cell(22,6,"Aporte Jubilatorio",1,0,'C');
 $pdf->Cell(22,6,"Obra Social",1,0,'C');
 $pdf->Cell(22,6,"Total",1,0,'C');
@@ -121,7 +115,6 @@ while($row=mysqli_fetch_assoc($result))
 
     $antiguedad= 0;
     $subsidio_sepelio = 0;
-    $subsidio_familiar= 0;
     $salario_familiar = 0;
     $aporte_jubilatorio = 0;
     $obra_social = 0;
@@ -191,7 +184,7 @@ while($row=mysqli_fetch_assoc($result))
         $pdf->Cell(22,6,$presentismo,1,0,'C');
         $pdf->Cell(22,6,$salario_familiar,1,0,'C');
         $pdf->Cell(22,6,$subsidio_sepelio,1,0,'C');
-        $pdf->Cell(22,6,$subsidio_familiar,1,0,'C');
+        $pdf->Cell(22,6,$aporte_pami,1,0,'C');
         $pdf->Cell(22,6,$aporte_jubilatorio,1,0,'C');
         $pdf->Cell(22,6,$obra_social,1,0,'C');
         $pdf->Cell(22,6,$pagototal,1,0,'C');

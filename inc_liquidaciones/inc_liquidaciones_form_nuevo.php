@@ -30,7 +30,7 @@ Nueva Liquidacion
 
 <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
-        <label for="">Tipo de cliente</label>
+        <label for="">Tipo de liquidación</label>
         <?php  include "includes/chosen/index_select_tipoliquidacion.php" ?>
     </div>
 </div>

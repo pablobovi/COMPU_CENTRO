@@ -20,7 +20,7 @@
 		 			$ult_detalleliq=$row_ult_detalleliquidacion['iddetalleliquidacion'];
 
 
-//saco los datos del empleado para calcular el basico
+   //saco los datos del empleado para calcular el basico
 	  			$q_empleado=mysql_query("SELECT * FROM empleado
 	                 								INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado=idcategoriaempleado
 	                 								INNER JOIN horastrabajadas ON horastrabajadas_idhorastrabajadas=idhotastrabajadas
@@ -88,7 +88,7 @@
 								}
 								$insert_detalleconcepto=mysql_query("INSERT INTO detalleconcepto (subtotal, concepto_idconcepto, detalleliquidacion_iddetalleliquidacion)
 																											VALUES ('$totalconcepto','$idconcepto','$ult_detalleliq')");
-		}
+					}
 			/*PARA AGREGAR EN DETALLELIQUIDACION DEBE, HABER Y PAGO TOTAL, DEBO ANALIZAR QUE TIPO DE CONCEPTO ES:
 			YA SEA UN APORTE = 1 O RETENCION =0. LUEGO LO INCREMENTO EN LA VARIABLE DEBE O HABER.
 			----SUMO BASISCO Y RESTO HABER-DEBE PARA OBTENER EL PAGO TOTAL*/
@@ -114,8 +114,18 @@
 						 $update_detalleliquidacion=mysql_query("UPDATE detalleliquidacion
 							 																			SET  totaldebe=$debe, totalhaber=$haber, pagototal=$pagototal
 							 																			WHERE iddetalleliquidacion=$ult_detalleliq")
-							 												 or die(mysql_error());
-		  		}
+																				or die(mysql_error());
+			/*CALCULAR SALARIO POR HIJO*/ 
+			$q_grupofamiliar=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar WHERE empleado_idempleado=$idempleado[$i]")
+			or die(mysql_error());	
+			$subtotal_asignacionporhijo=0;
+			while($row=mysqli_fetch_assoc($q_grupofamiliar)){
+				if($row['parentesco_idparentesco']==5)
+				$subtotal_asignacionporhijo=$basicoempleado + 500;
+			}
+			
+		}
+
 		?>
 
 
