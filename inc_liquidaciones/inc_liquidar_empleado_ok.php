@@ -63,8 +63,12 @@
 																							WHERE tipoliquidacion_idtipoliquidacion=$idtipoliquidacion")
 																	or die(mysql_error());
 
-				$q_presentismo=													
 				$presentismo=1;
+//CALCULAR CANTIDAD DE GRUPO FAMILIAR
+				$grupo_fam=mysql_query("SELECT * FROM grupofamiliar WHERE empleado_idempleado=$row_empleados[idempleado]");
+				$cant_grupo_fam= mysql_num_rows($grupo_fam);
+
+
 //RECORRO TODOS LOS CONCEPTOS ASOCIADOS AL TIPO DE LIQUIDACION
 
 				while($row_tipoliquidacion_concepto=mysql_fetch_array($q_tipoliquidacion_concepto)){
