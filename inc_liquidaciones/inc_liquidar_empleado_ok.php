@@ -153,7 +153,7 @@
 			$q_grupofamiliar=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar WHERE empleado_idempleado=$idempleado[$i]")
 			or die(mysql_error());
 			$subtotal_asignacionporhijo=0;
-			while($row=mysqli_fetch_assoc($q_grupofamiliar)){
+			while($row=mysql_fetch_assoc($q_grupofamiliar)){
 				if($row['parentesco_idparentesco']==5)
 				$subtotal_asignacionporhijo=$basicoempleado + 500;
 			}

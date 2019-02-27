@@ -76,23 +76,22 @@ $pdf->AliasNbPages();
 $pdf->SetTextColor(39, 138, 226);
 $pdf->SetFont('Arial','B',6);
 
-$pdf->SetX(76);
-$pdf->Cell(88,6,"Haberes",1,0,'C');
-$pdf->Cell(88,6,"Debes",1,0,'C');
+$pdf->SetX(82);
+$pdf->Cell(122,6,"Haberes",1,0,'C');
+$pdf->Cell(48,6,"Debes",1,0,'C');
 $pdf->Ln();
 
-$pdf->Cell(22,6,"Apellido",1,0,'C');
-$pdf->Cell(22,6,"Nombre",1,0,'C');
-$pdf->Cell(22,6,"Fecha",1,0,'C');
-$pdf->Cell(22,6,"Antiguedad",1,0,'C');
-$pdf->Cell(22,6,"Asignacion por Hijo",1,0,'C');
-$pdf->Cell(22,6,"Presentismo",1,0,'C');
-$pdf->Cell(22,6,"Salario Familiar",1,0,'C');
-$pdf->Cell(22,6,"Subsidio de Sepelio",1,0,'C');
-$pdf->Cell(22,6,"Aporte Pam",1,0,'C');
-$pdf->Cell(22,6,"Aporte Jubilatorio",1,0,'C');
-$pdf->Cell(22,6,"Obra Social",1,0,'C');
-$pdf->Cell(22,6,"Total",1,0,'C');
+$pdf->Cell(24,6,"Apellido",1,0,'C');
+$pdf->Cell(24,6,"Nombre",1,0,'C');
+$pdf->Cell(24,6,"Fecha",1,0,'C');
+$pdf->Cell(24,6,"Antiguedad",1,0,'C');
+$pdf->Cell(24,6,"Asignacion por Hijo",1,0,'C');
+$pdf->Cell(26,6,"Asignacion por Hijo disc.",1,0,'C');
+$pdf->Cell(24,6,"Presentismo",1,0,'C');
+$pdf->Cell(24,6,"Aguinaldo",1,0,'C');
+$pdf->Cell(24,6,"Aporte Jubilatorio",1,0,'C');
+$pdf->Cell(24,6,"Obra Social",1,0,'C');
+$pdf->Cell(24,6,"Total",1,0,'C');
 
 
 $total = 0;
@@ -114,12 +113,11 @@ while($row=mysqli_fetch_assoc($result))
     $total = $total + $row['pagototal'];
 
     $antiguedad= 0;
-    $subsidio_sepelio = 0;
-    $salario_familiar = 0;
+    $aguinaldo = 0;
     $aporte_jubilatorio = 0;
     $obra_social = 0;
     $presentismo = 0;
-    $aporte_pami=0;
+    $asignacion_por_hijo_discapacitado=0;
     $asignacion_por_hijo= 0;
 
     $concepto_result = mysqli_query($connString, "SELECT concepto_idconcepto, subtotal, descripcionconcepto from detalleconcepto
@@ -128,39 +126,34 @@ while($row=mysqli_fetch_assoc($result))
       while($row_concepto=mysqli_fetch_assoc($concepto_result))
         {
           switch ($row_concepto['concepto_idconcepto']) {
-            case 0:
-                echo "i es igual a 0";
-                break;
-            case 1:
-                echo "i es igual a 1";
-                break;
+        
             case 2:
                 $antiguedad = $row_concepto['subtotal'];
                 break;
-            case 3:
-                $subsidio_sepelio = $row_concepto['subtotal'];
-                break;
-            case 4:
-                $subsidio_familiar= $row_concepto['subtotal'];
-                break;
-            case 5:
-                $salario_familiar = $row_concepto['subtotal'];
-                break;
-            case 6:
-                $aporte_jubilatorio= $row_concepto['subtotal'];
-                break;
-            case 7:
-                $obra_social= $row_concepto['subtotal'];
-                break;
-            case 8:
-                $aporte_pami= $row_concepto['subtotal'];
-                break;
+            // case 3:
+            //     $subsidio_sepelio = $row_concepto['subtotal'];
+            //     break;
+            // case 4:
+            //     $subsidio_familiar= $row_concepto['subtotal'];
+            //     break;
+            // case 5:
+            //     $salario_familiar = $row_concepto['subtotal'];
+            //     break;
+            // case 6:
+            //     $aporte_jubilatorio= $row_concepto['subtotal'];
+            //     break;
+            // case 7:
+            //     $obra_social= $row_concepto['subtotal'];
+            //     break;
+            // case 8:
+            //     $aporte_pami= $row_concepto['subtotal'];
+            //     break;
             case 9:
                 $obra_social= $row_concepto['subtotal'];
                 break;
-            case 10:
-              $aporte_pami= $row_concepto['subtotal'];
-                break;
+            // case 10:
+            //   $aporte_pami= $row_concepto['subtotal'];
+            //     break;
             case 11:
                 $asignacion_por_hijo= $row_concepto['subtotal'];
                 break;
@@ -170,24 +163,29 @@ while($row=mysqli_fetch_assoc($result))
             case 13:
                 $aporte_jubilatorio= $row_concepto['subtotal'];
                 break;
-              }
-  }
+            case 14:
+                  $aguinaldo= $row_concepto['subtotal'];
+                break;
+            case 15:
+             $asignacion_por_hijo_discapacitado= $row_concepto['subtotal'];
+                 break;    
+                         }
+}
 
         $pdf->Ln();
         $pdf->SetTextColor(100);
         $pdf->SetFont('Arial','',6);
-        $pdf->Cell(22,6,$apellido,1,0,'C');
-        $pdf->Cell(22,6,$nombre,1,0,'C');
-        $pdf->Cell(22,6,$fecha,1,0,'C');
-        $pdf->Cell(22,6,$antiguedad,1,0,'C');
-        $pdf->Cell(22,6,$asignacion_por_hijo,1,0,'C');
-        $pdf->Cell(22,6,$presentismo,1,0,'C');
-        $pdf->Cell(22,6,$salario_familiar,1,0,'C');
-        $pdf->Cell(22,6,$subsidio_sepelio,1,0,'C');
-        $pdf->Cell(22,6,$aporte_pami,1,0,'C');
-        $pdf->Cell(22,6,$aporte_jubilatorio,1,0,'C');
-        $pdf->Cell(22,6,$obra_social,1,0,'C');
-        $pdf->Cell(22,6,$pagototal,1,0,'C');
+        $pdf->Cell(24,6,$apellido,1,0,'C');
+        $pdf->Cell(24,6,$nombre,1,0,'C');
+        $pdf->Cell(24,6,$fecha,1,0,'C');
+        $pdf->Cell(24,6,$antiguedad,1,0,'C');
+        $pdf->Cell(24,6,$asignacion_por_hijo,1,0,'C');
+        $pdf->Cell(26,6,$asignacion_por_hijo_discapacitado,1,0,'C');
+        $pdf->Cell(24,6,$presentismo,1,0,'C');
+        $pdf->Cell(24,6,$aguinaldo,1,0,'C');
+        $pdf->Cell(24,6,$aporte_jubilatorio,1,0,'C');
+        $pdf->Cell(24,6,$obra_social,1,0,'C');
+        $pdf->Cell(24,6,$pagototal,1,0,'C');
 
 
   }
@@ -196,11 +194,11 @@ $pdf->Ln();
 
 
 
-$pdf->SetX(230);
+$pdf->SetX(228);
 $pdf->SetTextColor(208, 49, 53);
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(22,8,'Total',1,0,'C');
-$pdf->Cell(22,8,round($total, 2),1,0,'C');
+$pdf->Cell(24,8,'Total',1,0,'C');
+$pdf->Cell(24,8,round($total, 2),1,0,'C');
 $pdf->SetTextColor(100);
 
 $pdf->Output('','LIBRO_SUELDO.pdf');
