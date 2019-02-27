@@ -66,12 +66,14 @@
 				$presentismo=1;
 //Salario familir
 				$grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
-																WHERE empleado_idempleado=$row_empleados[idempleado]");
+																WHERE empleado_idempleado=$row_empleados[idempleado]")or die(mysql_error());
 				$cant_grupo_fam= mysql_num_rows($grupo_fam);
+			
+
 				$hijos=0;
 				$hijosdis=0;
-				while($cant_grupo_fam){
-					if ($cant_grupo_fam['parentesco_idparentesco']==4){
+				while($row=mysql_fetch_assoc($grupo_fam)){
+					if ($row['parentesco_idparentesco']==4){
 						$hijos=$hijos+1;
 					}
 						else {
