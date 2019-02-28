@@ -74,9 +74,7 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
           apellidoempleado, totalcompra, ivacompra FROM compra
           INNER JOIN empleado on empleado_idempleado=idempleado
           INNER JOIN proveedor on proveedor_idproveedor=idproveedor
-          INNER JOIN tipo on tipo_idtipo = idtipo
-
-        ") or die("database error:". mysqli_error($connString));
+          INNER JOIN tipo on tipo_idtipo = idtipo") or die("database error:". mysqli_error($connString));
 
       }
   }
