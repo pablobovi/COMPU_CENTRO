@@ -22,14 +22,9 @@ Descripcion de Tipo Liquidacion
       ?>
       <option value="<?php echo $row_concepto['idconcepto']?>"><?php echo $row_concepto['descripcionconcepto'] ?></option>
     <?php      }?>
-    ...
     </select><br>
   </div>
-    <legend></legend>
 </div>
-
-
-  <legend></legend>
   <div id="success"></div>
       <div class="row">
         <div class="form-group col-xs-12">

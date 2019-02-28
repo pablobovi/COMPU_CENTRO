@@ -33,6 +33,7 @@
     <li><a href="liquidaciones.php"><span class="fa fa-caret-right"></span> Listar Liquidaciones</a></li>
     <li><a href="tipo_liquidaciones.php"><span class="fa fa-caret-right"></span> Tipos de Liquidaciones</a></li>
     <li><a href="conceptos.php"><span class="fa fa-caret-right"></span> Conceptos</a></li>
+    <li><a href="boleta.php"><span class="fa fa-caret-right"></span> Boleta de Sueldo</a></li>
   </ul>
 </li>
 <li><a href="#" data-target=".item2-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-users"></i> Empleados<i class="fa fa-collapse"></i></a></li>
