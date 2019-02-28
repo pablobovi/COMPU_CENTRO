@@ -6,6 +6,20 @@
 	$fechadeposito=$_POST['fechadeposito'];
   $idtipoliquidacion=$_POST['idtipoliquidacion'];
 
+	$getfecha=mysql_query("SELECT * from liquidacion where idliquidacion=$idliquidacion")
+						or die(mysql_error());
+	$fecha=mysql_fetch_array($getfecha)['desde'];
+	$separafecha= explode('-', $fecha);
+	$dia = $separafecha[2];
+	$mes = $separafecha[1];
+	$anio = $separafecha[0];
+	$mesc =date("m");
+	$anioc =date("Y");
+
+	$fechaliquidacion=$anioc."-".$mes;
+
+
+
   for ($i=0 ; $i<count($idempleado) ; $i++)
     	{
       		$insert_detalleliquidacion="INSERT INTO detalleliquidacion (fechadeposito, liquidacion_idliquidacion, empleado_idempleado)
@@ -100,8 +114,15 @@ $grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
 					                 $totalconcepto=$antiguedad*$row_concepto['montofijo'];
 					                break;
 											case 12:
-													if($presentismo=1)
-													 	$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+											$tiempotrabajado = 0;
+											$totalconcepto=0;
+											$q_presentismo=mysql_query("SELECT * FROM asistencia WHERE empleado_idempleado=$idempleado[$i] and login like '%$fechaliquidacion%'") or die(mysql_error());
+											while($row_presentismo=mysql_fetch_array($q_presentismo)){
+														$tiempotrabajado= $tiempotrabajado + $row_presentismo['tiempotrabajado'];
+													}
+													if($tiempotrabajado>9000){
+														$totalconcepto=2000;
+													}
 														break;
 											case 11:
 												$totalconcepto=$hijos*$row_concepto['montofijo'];
@@ -116,7 +137,7 @@ $grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
 													break;
 											case 14:
 												$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
-												break;
+												 break;
 											default:
 											if ($row_concepto['montofijo']==0)//entonces es un porcentaje
 														{
