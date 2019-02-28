@@ -98,7 +98,7 @@ $result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subto
 FROM detalleliquidacion 
 INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
 INNER JOIN concepto ON concepto_idconcepto=idconcepto 
-WHERE empleado_idempleado=7 AND tipoconcepto='0' 
+WHERE empleado_idempleado=7 AND tipoconcepto='1' 
 AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion)
 UNION
 
@@ -106,7 +106,7 @@ SELECT descripcionconcepto, cantidad,  NULL, subtotal
 FROM detalleliquidacion 
 INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
 INNER JOIN concepto ON concepto_idconcepto=idconcepto 
-WHERE empleado_idempleado=7 AND tipoconcepto='1'
+WHERE empleado_idempleado=7 AND tipoconcepto='0'
 AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion)") or die("database error:". mysqli_error($connString));
 
 $pagototal =  mysqli_query($connString, "SELECT pagototal 
