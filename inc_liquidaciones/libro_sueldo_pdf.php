@@ -44,22 +44,24 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
   	$fecha_desde = $_POST['fechadesde'];
     $fecha_hasta = $_POST['fechahasta'];
 
-  $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
-  INNER JOIN empleado on empleado_idempleado=idempleado
+  $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
+     INNER JOIN empleado on empleado_idempleado=idempleado
+     INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
       where fechadeposito >= '$fecha_desde' && fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
 
 }else {
   if (isset($_POST['fechadesde']) && $_POST['fechadesde']!='') {
     $fecha_desde = $_POST['fechadesde'];
-    $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion FROM detalleliquidacion
-    INNER JOIN empleado on empleado_idempleado=idempleado
+    $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
+       INNER JOIN empleado on empleado_idempleado=idempleado
+       INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
         where fechadeposito >= '$fecha_desde'") or die("database error:". mysqli_error($connString));
   } else {
       if (isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
         $fecha_hasta = $_POST['fechahasta'];
-        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion,descripcionliq FROM detalleliquidacion
-        INNER JOIN empleado on empleado_idempleado=idempleado
-        INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
+        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
+           INNER JOIN empleado on empleado_idempleado=idempleado
+           INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
             where fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
       } else{
         $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
