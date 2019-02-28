@@ -64,7 +64,7 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
            INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
             where fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
       } else{
-        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
+        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,categoriaempleado_idcategoriaempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
            INNER JOIN empleado on empleado_idempleado=idempleado
            INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
            ") or die("database error:". mysqli_error($connString));
@@ -81,24 +81,25 @@ $pdf->AliasNbPages();
 $pdf->SetTextColor(39, 138, 226);
 $pdf->SetFont('Arial','B',6);
 
-$pdf->SetX(95);
-$pdf->Cell(120,6,"Haberes",1,0,'C');
-$pdf->Cell(53,6,"Debes",1,0,'C');
+$pdf->SetX(93);
+$pdf->Cell(135,6,"Haberes",1,0,'C');
+$pdf->Cell(50,6,"Debes",1,0,'C');
 $pdf->Ln();
 
-$pdf->Cell(21,6,"Apellido",1,0,'C');
+$pdf->Cell(20,6,"Apellido",1,0,'C');
 $pdf->Cell(21,6,"Nombre",1,0,'C');
 $pdf->Cell(21,6,"Fecha",1,0,'C');
-$pdf->Cell(22,6,"Descrip. Liq.",1,0,'C');
-$pdf->Cell(19,6,"Antiguedad",1,0,'C');
+$pdf->Cell(21,6,"Descrip. Liq.",1,0,'C');
+$pdf->Cell(18,6,"Suel.basic.",1,0,'C');
+$pdf->Cell(18,6,"Antiguedad",1,0,'C');
 $pdf->Cell(22,6,"Asignacion por Hijo",1,0,'C');
 $pdf->Cell(26,6,"Asignacion por Hijo disc.",1,0,'C');
-$pdf->Cell(19,6,"Presentismo",1,0,'C');
+$pdf->Cell(18,6,"Presentismo",1,0,'C');
 $pdf->Cell(18,6,"Aguinaldo",1,0,'C');
-$pdf->Cell(16,6,"Total Haber",1,0,'C');
-$pdf->Cell(21,6,"Aporte Jubilatorio",1,0,'C');
-$pdf->Cell(16,6,"Obra Social",1,0,'C');
-$pdf->Cell(16,6,"Total Debe",1,0,'C');
+$pdf->Cell(15,6,"Total Haber",1,0,'C');
+$pdf->Cell(20,6,"Aporte Jubilatorio",1,0,'C');
+$pdf->Cell(15,6,"Obra Social",1,0,'C');
+$pdf->Cell(15,6,"Total Debe",1,0,'C');
 $pdf->Cell(16,6,"Total",1,0,'C');
 
 
@@ -112,9 +113,11 @@ while($row=mysqli_fetch_assoc($result))
     $totaldebe= $row['totaldebe'];
     $totalhaber= $row['totalhaber'];
     $descipcionliquidacion=$row['descripcionliq'];
-
+    $categoriaempleado_idcategoriaempleado = $row['categoriaempleado_idcategoriaempleado'];
     $descipcionliquidacionSubstring =substr ( $descipcionliquidacion , 0,14  ).".";
 
+    $q_salariobasico = mysqli_query($connString, "SELECT salariobasicocategoria from categoriaempleado WHERE idcategoriaempleado=$categoriaempleado_idcategoriaempleado") or die("database error:". mysqli_error($connString));
+  	$salario=mysqli_fetch_array($q_salariobasico)['salariobasicocategoria'];
     $pagototal= 0;
     if ($row['pagototal']!=''|| $row['pagototal']!=null) {
       $pagototal= $row['pagototal'];
@@ -187,22 +190,23 @@ while($row=mysqli_fetch_assoc($result))
         $pdf->Ln();
         $pdf->SetTextColor(100);
         $pdf->SetFont('Arial','',6);
-        $pdf->Cell(21,6,$apellido,1,0,'C');
+        $pdf->Cell(20,6,$apellido,1,0,'C');
         $pdf->Cell(21,6,$nombre,1,0,'C');
         $pdf->Cell(21,6,$fecha,1,0,'C');
-        $pdf->Cell(22,6,$descipcionliquidacionSubstring,1,0,'C');
-        $pdf->Cell(19,6,$antiguedad,1,0,'C');
+        $pdf->Cell(21,6,$descipcionliquidacionSubstring,1,0,'C');
+        $pdf->Cell(18,6,$salario,1,0,'C');
+        $pdf->Cell(18,6,$antiguedad,1,0,'C');
         $pdf->Cell(22,6,$asignacion_por_hijo,1,0,'C');
         $pdf->Cell(26,6,$asignacion_por_hijo_discapacitado,1,0,'C');
-        $pdf->Cell(19,6,$presentismo,1,0,'C');
+        $pdf->Cell(18,6,$presentismo,1,0,'C');
         $pdf->Cell(18,6,$aguinaldo,1,0,'C');
         $pdf->SetTextColor(242, 19, 19);
-        $pdf->Cell(16,6,$totalhaber,1,0,'C');
+        $pdf->Cell(15,6,$totalhaber,1,0,'C');
         $pdf->SetTextColor(100);
-        $pdf->Cell(21,6,$aporte_jubilatorio,1,0,'C');
-        $pdf->Cell(16,6,$obra_social,1,0,'C');
+        $pdf->Cell(20,6,$aporte_jubilatorio,1,0,'C');
+        $pdf->Cell(15,6,$obra_social,1,0,'C');
         $pdf->SetTextColor(242, 19, 19);
-        $pdf->Cell(16,6,$totaldebe,1,0,'C');
+        $pdf->Cell(15,6,$totaldebe,1,0,'C');
         $pdf->SetTextColor(100);
 
         $pdf->Cell(16,6,$pagototal,1,0,'C');
