@@ -16,7 +16,6 @@
 			$insert_tipoliquidacion_concepto="INSERT INTO tipoliquidacion_concepto (concepto_idconcepto, tipoliquidacion_idtipoliquidacion) VALUES ('$idconcepto[$i]','$ultimo_tipoliquidacion')";
 			mysql_query($insert_tipoliquidacion_concepto) or die(mysql_error());		}
 		?>
-?>
 
 <?php //si el tipo liquidacion se carga ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

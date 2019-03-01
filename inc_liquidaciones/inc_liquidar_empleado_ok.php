@@ -120,9 +120,17 @@ $grupo_fam=mysql_query("SELECT parentesco_idparentesco FROM grupofamiliar
 											while($row_presentismo=mysql_fetch_array($q_presentismo)){
 														$tiempotrabajado= $tiempotrabajado + $row_presentismo['tiempotrabajado'];
 													}
-													if($tiempotrabajado>9000){
-														$totalconcepto=2000;
+
+													if ($jornadaempleado==4) {
+														 if ($tiempotrabajado>4500) {
+															 $totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+														 }
+													}else {
+														if($tiempotrabajado>9000){
+															$totalconcepto=($row_concepto['montovariable']/100)*$basicoempleado;
+														}
 													}
+
 														break;
 											case 11:
 												$totalconcepto=$hijos*$row_concepto['montofijo'];
