@@ -9,8 +9,7 @@ if (isset($_GET['busca_venta'])) {
 	INNER JOIN cliente ON cliente_idcliente=idcliente
 	LEFT JOIN venta_has_pago ON venta_idventa=idventa
 	LEFT JOIN pago ON pago_idpago=idpago
-	WHERE nombreorsocial LIKE '%$busqueda_venta%' AND idventa!=1 ORDER BY fechaventa DESC");
-
+	WHERE nombreorsocial LIKE '%$busqueda_venta%' AND idventa!=1 ORDER BY fechaventa DESC");	
 }
 else{
 	$q_venta=mysql_query("SELECT * FROM venta
@@ -18,5 +17,4 @@ else{
 	INNER JOIN cliente ON cliente_idcliente=idcliente
 	WHERE idventa!=1 ");
 }
-
 ?>

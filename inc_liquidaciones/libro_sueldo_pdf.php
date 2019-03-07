@@ -44,29 +44,34 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
   	$fecha_desde = $_POST['fechadesde'];
     $fecha_hasta = $_POST['fechahasta'];
 
-  $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,categoriaempleado_idcategoriaempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
-     INNER JOIN empleado on empleado_idempleado=idempleado
-     INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
-      where fechadeposito >= '$fecha_desde' && fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
+  $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+  FROM detalleliquidacion t1
+ INNER JOIN empleado t2 on empleado_idempleado=idempleado
+ INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
+      where t3.fechaliquidacion >= '$fecha_desde' && t3.fechaliquidacion <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
 
 }else {
   if (isset($_POST['fechadesde']) && $_POST['fechadesde']!='') {
     $fecha_desde = $_POST['fechadesde'];
-    $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,categoriaempleado_idcategoriaempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
-       INNER JOIN empleado on empleado_idempleado=idempleado
-       INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
-        where fechadeposito >= '$fecha_desde'") or die("database error:". mysqli_error($connString));
+    $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+    FROM detalleliquidacion t1
+   INNER JOIN empleado t2 on empleado_idempleado=idempleado
+   INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
+        where t3.fechaliquidacion >= '$fecha_desde'") or die("database error:". mysqli_error($connString));
   } else {
       if (isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
         $fecha_hasta = $_POST['fechahasta'];
-        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,categoriaempleado_idcategoriaempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
-           INNER JOIN empleado on empleado_idempleado=idempleado
-           INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
-            where fechadeposito <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
+        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+        FROM detalleliquidacion t1
+       INNER JOIN empleado t2 on empleado_idempleado=idempleado
+       INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
+            where t3.fechaliquidacion <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
       } else{
-        $result = mysqli_query($connString, "SELECT apellidoempleado,nombreempleado,categoriaempleado_idcategoriaempleado,fechadeposito,totalhaber,totaldebe,pagototal, iddetalleliquidacion, descripcionliq FROM detalleliquidacion
-           INNER JOIN empleado on empleado_idempleado=idempleado
-           INNER JOIN liquidacion on liquidacion_idliquidacion=idliquidacion
+        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+            FROM detalleliquidacion t1
+           INNER JOIN empleado t2 on empleado_idempleado=idempleado
+           INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
+           order by t1.iddetalleliquidacion Desc
            ") or die("database error:". mysqli_error($connString));
 
       }
@@ -109,7 +114,7 @@ while($row=mysqli_fetch_assoc($result))
   {
     $apellido= $row['apellidoempleado'];
     $nombre= $row['nombreempleado'];
-    $fecha= $row['fechadeposito'];
+    $fecha= $row['fechaliquidacion'];
     $totaldebe= $row['totaldebe'];
     $totalhaber= $row['totalhaber'];
     $descipcionliquidacion=$row['descripcionliq'];

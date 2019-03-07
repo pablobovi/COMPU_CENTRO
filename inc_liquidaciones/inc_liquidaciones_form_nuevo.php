@@ -5,7 +5,9 @@
     $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
 
 ?>
-<form class="" action="liquidacion_alta_ok_nuevo.php" method="POST" class="form-inline" role=form onsubmit="return verificar();" onsubmit="validad();">
+<form ACTION="agregar_linea_venta.php" METHOD="POST" onsubmit="return validar()">
+
+<!-- <form  action="liquidacion_alta_ok_nuevo.php" method="POST" class="form-inline" role=form onsubmit="return verificar();" onsubmit="validad();"> -->
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
@@ -40,13 +42,13 @@ Nueva Liquidacion
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
 Desde
     											<label class="sr-only" for="">Desde:</label>
-    											<input type="date" class="form-control" id="fechadesde" name="fechadesde" placeholder="Input field">
+    											<input type="date" class="form-control" id="fechadesde" name="fechadesde" required="required" placeholder="Input field">
 
     </div>
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
 Hasta
-   										   	<label class="sr-only" for="">Hasta:</label>
-    											<input type="date" class="form-control" id="fechahasta" name="fechahasta" placeholder="Input field">
+   										   	    <label class="sr-only" for="">Hasta:</label>
+    											<input type="date" class="form-control" id="fechahasta" name="fechahasta" required="required" placeholder="Input field">
 
     </div>
   </div>
@@ -58,7 +60,7 @@ Hasta
   <br>
   <br>
 
-  <button type="submit" class="btn boton-send btn-info pull-right btn-md">Liquidar</button>
+  <input type="submit" name="button" id="button" value="Liquidar" class="btn btn-info pull-right" />
 
   <button type="button" id="cancelar" class="btn btn-danger btn-primary pull-left btn-md">Cancelar</button>
     </div>
@@ -73,18 +75,22 @@ Hasta
     </script>
 <!-- valida que el cliente este registrado si se ingresa condicion de pago cuenta corriente -->
 <script>
-function validar(){
-var idproveedor = $('#inputidproveedor').val();
-var total = $('#inputsubtotal').val();
-        if(idproveedor==0){
-        alert('Debe seleccionar un proveedor');
-        return false;
-        }
-        else {
-          if (total==0) {
-            alert('cargar al menos un producto');
-            return false;
-          }
-        }
+    function validar(){
+        // $value1=$_POST['fechadesde'];
+        // $value2=$_POST['value2'];
+    var fechadesde = $('#fechadesde').val();
+    var fechahasta = $('#fechahasta').val();
+    var desde = fechadesde.substring(0, 7);
+    var hasta = fechahasta.substring(0, 7);
+
+     if(desde != hasta){
+      alert('Debe seleccionar una fechas dentro del mismo mes');
+     return false
+     }
+     if(fechadesde > fechahasta){
+         alert('La fecha "Hasta" no puede ser menor')
+         return false
+     }
 }
-</script>
+ 
+</script> 
