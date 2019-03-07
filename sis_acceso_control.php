@@ -1,19 +1,19 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 
 <?php
-     mysql_select_db($database_conexion_smile, $conexion_smile);
+     mysql_select_db($database_conexion_compucentro, $conexion_compucentro);
      date_default_timezone_set('America/Argentina/Tucuman');
 
      /* El query valida si el usuario ingresado existe en la base de datos. Se utiliza la función
      htmlentities para evitar inyecciones SQL. */
-     $myusuario = mysql_query("select * from usuario where nombreusuario =  '".htmlentities($_POST["usuario"])."'",$conexion_smile);
+     $myusuario = mysql_query("select * from usuario where nombreusuario =  '".htmlentities($_POST["usuario"])."'",$conexion_compucentro);
      $nmyusuario = mysql_num_rows($myusuario);
 
      //Si existe el usuario, validamos también la contraseña ingresada y el estado del usuario...
      if($nmyusuario != 0){
           $sql = "select * from usuario where nombreusuario = '".htmlentities($_POST["usuario"])."'
                and password = '".htmlentities(MD5($_POST["pass"]))."'";
-          $myclave = mysql_query($sql,$conexion_smile);
+          $myclave = mysql_query($sql,$conexion_compucentro);
           $nmyclave = mysql_num_rows($myclave);
 
           //Si el usuario y clave ingresado son correctos, creamos la sesión del mismo.
@@ -52,5 +52,5 @@
      }else{
           echo"<script>alert('El usuario no existe.');window.location.href=\"index.php\"</script>";
      }
-     mysql_close($conexion_smile);
+     mysql_close($conexion_compucentro);
 ?>

@@ -1,4 +1,4 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
   $tipo=mysql_query("SELECT * FROM tipo");
   $venta=mysql_query("SELECT * FROM venta ORDER BY idventa DESC LIMIT 0,1");
   $row_venta=mysql_fetch_array($venta);

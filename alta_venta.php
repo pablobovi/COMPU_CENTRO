@@ -1,6 +1,6 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 	
 	$idempleado=$_SESSION["idempleado"];
 	$fechaventa=$_POST['fechaventa'];

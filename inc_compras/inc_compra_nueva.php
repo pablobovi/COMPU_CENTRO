@@ -1,4 +1,4 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 ?>
 <form action="alta_compra.php" method="POST" role="form" onsubmit="return validar();">
   <div class="row control-group">

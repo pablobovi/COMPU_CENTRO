@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idproducto=$_GET['idproducto'];
 $producto="SELECT * FROM producto WHERE idproducto=$idproducto";
 $q_producto=mysql_query($producto);

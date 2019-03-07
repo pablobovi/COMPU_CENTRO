@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idcliente=$_GET['idcliente'];
 $direccion="SELECT * FROM cliente
 INNER JOIN direccion ON direccion_iddireccion = iddireccion

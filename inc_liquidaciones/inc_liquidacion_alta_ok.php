@@ -1,6 +1,6 @@
 <?php include('sis_acceso_ok.php'); ?>
 <?php
-	mysql_select_db($database_conexion_smile,$conexion_smile);
+	mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 		$fechaliquidacion=$_POST['fechaliquidacionjs'];
 		$idempleado=$_POST['selectedempleado'];

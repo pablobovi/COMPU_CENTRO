@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idempleado=$_GET['idempleado'];
 $empleado="SELECT * FROM empleado 
 INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado=idcategoriaempleado

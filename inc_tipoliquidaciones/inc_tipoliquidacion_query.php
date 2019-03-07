@@ -1,6 +1,6 @@
 <?php
 
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 if (isset($_GET['busca_tipoliquidacion']) && $_GET['busca_tipoliquidacion']!='') {
 	$busca_tipoliquidacion = $_GET['busca_tipoliquidacion'];

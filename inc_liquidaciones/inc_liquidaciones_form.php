@@ -1,7 +1,7 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <?php
-    mysql_select_db($database_conexion_smile, $conexion_smile);
+    mysql_select_db($database_conexion_compucentro, $conexion_compucentro);
     $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
     $q_concepto=mysql_query("SELECT idconcepto,descripcionconcepto FROM concepto");
 ?>

@@ -1,5 +1,5 @@
 <?php
- mysql_select_db($database_conexion_smile,$conexion_smile);
+ mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
   $q_productos=mysql_query("SELECT * FROM producto
   ORDER BY nombreproducto");
