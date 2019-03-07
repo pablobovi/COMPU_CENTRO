@@ -4,7 +4,7 @@
   $idliquidacion=$_POST['idliquidacion'];
 	$idempleado=$_POST['idempleado'];
 	$fechadeposito=$_POST['fechadeposito'];
-  $idtipoliquidacion=$_POST['idtipoliquidacion'];
+	$idtipoliquidacion=$_POST['idtipoliquidacion'];
 
 	$getfecha=mysql_query("SELECT * from liquidacion where idliquidacion=$idliquidacion")
 						or die(mysql_error());

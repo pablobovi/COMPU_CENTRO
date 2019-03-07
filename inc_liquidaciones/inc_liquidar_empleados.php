@@ -6,14 +6,14 @@
     $q_liquidacion= mysql_query("SELECT * FROM liquidacion
     INNER JOIN tipoliquidacion ON tipoliquidacion_idtipoliquidacion=idtipoliquidacion
     WHERE idliquidacion=$idliquidacion");
-    $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
+    $q_empleado=mysql_query("SELECT idempleado, nombreempleado, apellidoempleado FROM empleado");
     $q_tipoliquidacion=mysql_query("SELECT descripcion FROM tipoliquidacion
       WHERE idtipoliquidacion=$idtipoliquidacion");
     $row_liquidacion=mysql_fetch_array($q_liquidacion);
     $row_tipoliquidacion=mysql_fetch_array($q_tipoliquidacion);
 ?>
 <table class='table table-bordered table-striped'>
-<form class="" action="liquidacion_editar_ok_nuevo.php" method="POST">
+<form class="" action="liquidacion_editar_ok_nuevo.php" method="POST" onsubmit="return validar();">
   <input type="hidden" name="idliquidacion" id="" class="form-control" value="<?php echo $idliquidacion; ?>">
   <input type="hidden" name="idtipoliquidacion" id="" class="form-control" value="<?php echo $idtipoliquidacion; ?>">
 
@@ -88,3 +88,6 @@
     </div>
 </form>
 </table>
+
+
+ 

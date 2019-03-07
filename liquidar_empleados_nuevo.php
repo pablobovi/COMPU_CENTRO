@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="panel panel-default">
-              <div class="panel-heading no-collapse">Datos Liquidaciono</div>
+              <div class="panel-heading no-collapse">Datos Liquidacion</div>
                 <?php include "inc_liquidaciones/inc_liquidar_empleados.php" ?>
         </div>
         </div>

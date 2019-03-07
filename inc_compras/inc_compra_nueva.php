@@ -1,6 +1,6 @@
 <?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 ?>
-<form action="alta_compra.php" method="POST" role="form" onsubmit="return validar();">
+<form action="alta_compra.php" method="POST" role="form" onsubmit="return validar()">
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechacompra" id="inputFechacompra" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
