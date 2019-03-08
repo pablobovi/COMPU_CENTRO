@@ -139,6 +139,7 @@ while($row=mysqli_fetch_assoc($result))
     $presentismo = 0;
     $asignacion_por_hijo_discapacitado=0;
     $asignacion_por_hijo= 0;
+    $basico=0;
 
     $concepto_result = mysqli_query($connString, "SELECT concepto_idconcepto, subtotal, descripcionconcepto from detalleconcepto
       INNER JOIN concepto on concepto_idconcepto=idconcepto WHERE
@@ -168,6 +169,9 @@ while($row=mysqli_fetch_assoc($result))
             case 15:
              $asignacion_por_hijo_discapacitado= $row_concepto['subtotal'];
                  break;
+            case 16:
+             $basico= $row_concepto['subtotal'];
+                break;
           }
       }
 
@@ -178,7 +182,7 @@ while($row=mysqli_fetch_assoc($result))
         $pdf->Cell(21,6,$nombre,1,0,'C');
         $pdf->Cell(21,6,$fecha,1,0,'C');
         $pdf->Cell(21,6,$descipcionliquidacionSubstring,1,0,'C');
-        $pdf->Cell(18,6,$salario,1,0,'C');
+        $pdf->Cell(18,6,$basico,1,0,'C');
         $pdf->Cell(18,6,$antiguedad,1,0,'C');
         $pdf->Cell(22,6,$asignacion_por_hijo,1,0,'C');
         $pdf->Cell(26,6,$asignacion_por_hijo_discapacitado,1,0,'C');
@@ -193,8 +197,6 @@ while($row=mysqli_fetch_assoc($result))
         $pdf->Cell(15,6,$totaldebe,1,0,'C');
         $pdf->SetTextColor(100);
         $pdf->Cell(16,6,$salario+$pagototal,1,0,'C');
-
-
   }
 
 $pdf->Ln();
