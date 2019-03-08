@@ -9,7 +9,28 @@ class PDF extends FPDF
 // Page header
 function Header()
 {
-  
+  $idempleado=$_POST['idempleado'];
+$mesliquidacion=$_POST['mesliquidacion'];
+  $db = new dbObj();
+$connString =  $db->getConnstring();
+  $nombreempleado =  mysqli_query($connString, "SELECT nombreempleado, apellidoempleado
+FROM empleado 
+WHERE idempleado = '$idempleado'")
+or die("database error:". mysqli_error($connString));
+//$nombreempleado1 = NULL;
+while($row=mysqli_fetch_assoc($nombreempleado))
+  {
+    $nombreempleado1 = ("Nombre Empleado: ").($row['nombreempleado']).(" ").($row['apellidoempleado']);
+  }
+    $fechaingreso =  mysqli_query($connString, "SELECT fechaingresoempleado
+    FROM empleado 
+    WHERE idempleado = '$idempleado'")
+    or die("database error:". mysqli_error($connString));
+    //$nombreempleado1 = NULL;
+    while($row=mysqli_fetch_assoc($fechaingreso))
+      {
+        $fechaingreso1 = ("Fecha de ingreso: ").($row['fechaingresoempleado']);
+      }
     // Logo
     $this->SetTitle('BOLETA');
     $this->Image('../images/logo.png',40,5,25);
@@ -21,13 +42,13 @@ function Header()
     $this->Write(5,'Boleta de Sueldo');
     $this->Ln(20);
     $this->Cell(80,5,'CompuCentro',0,0,'C');
-    $this->Cell(80,5,'Nombre Empleado',0,2,'C');
+    $this->Cell(80,5,$nombreempleado1,20,2,'C');
     $this->Ln(1);
     $this->Cell(80,5,'Cordoba 828',0,0,'C');
-    $this->Cell(80,5,'Fecha Ingreso',0,2,'C');
+    $this->Cell(80,5,$fechaingreso1,20,2,'C');
     $this->Ln(1);
     $this->Cell(80,5,'Cuit: 3070881234',0,0,'C');
-    $this->Cell(80,5,'ID Empleado',20,2,'C');
+    $this->Cell(80,5,$apellidoempleado1,20,2,'C');
     $this->Ln(1);
     $this->Cell(80,5,'Liquidacion: Febrero',0,0,'C');
 
