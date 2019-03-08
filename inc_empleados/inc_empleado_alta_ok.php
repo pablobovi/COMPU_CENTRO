@@ -17,6 +17,8 @@
 	$manzana=$_POST['manzana'];
 	$calle=$_POST['calle'];
 	$numero=$_POST['numero'];
+	$banco=$_POST['idbanco'];
+	$cajadeahorro=$_POST['cajadeahorro'];
 
 	$alta_direccion=mysql_query("INSERT INTO direccion (calle, numero, manzana, barrio, localidad_idlocalidad)
 		VALUES ('$calle', '$numero', '$manzana', '$barrio', '$inputlocalidad')");
@@ -35,6 +37,8 @@
 	$alta_usuario=mysql_query("INSERT INTO usuario (nombreusuario, password, tipousuario, empleado_idempleado, nivel)
 	VALUES ('$nombreempleado', MD5('12345'), '2', '$ult_empleado', $nivel)");
 
+	$alta_cajadeahorro=mysql_query("INSERT INTO cajadeahorro (nrocuenta, banco_idbanco, empleado_idempleado)
+	VALUES ('$cajadeahorro', '$banco', '$ult_empleado')")
 ?>
 
 <?php //si  se carga ?>

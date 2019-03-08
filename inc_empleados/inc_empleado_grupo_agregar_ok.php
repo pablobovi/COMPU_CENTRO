@@ -7,9 +7,9 @@
 	$nombre_pariente=$_POST['nombre_pariente'];
 	$dni_pariente=$_POST['dni_pariente'];
 	$fechanacimiento_pariente=$_POST['fechanacimiento_pariente'];
-	$parentesco=$_POST['parentesco'];
+	$parentesco=$_POST['idparentesco'];
 
-	$insert_grupo="INSERT INTO grupofamiliar (empleado_idempleado, nombre_pariente, apellido_pariente, dni_pariente, fechanacimiento_pariente, parentesco) VALUES ('$idempleado','$nombre_pariente','$apellido_pariente', '$dni_pariente', '$fechanacimiento_pariente', '$parentesco');";
+	$insert_grupo="INSERT INTO grupofamiliar (empleado_idempleado, nombre_pariente, apellido_pariente, dni_pariente, fechanacimiento_pariente, parentesco_idparentesco) VALUES ('$idempleado','$nombre_pariente','$apellido_pariente', '$dni_pariente', '$fechanacimiento_pariente', '$parentesco');";
 	mysql_query($insert_grupo);
 ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
