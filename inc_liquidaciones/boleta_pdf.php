@@ -74,8 +74,7 @@ AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquid
 
 $pagototal =  mysqli_query($connString, "SELECT pagototal 
 FROM detalleliquidacion 
-WHERE iddetalleliquidacion 
-in ( SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion)")
+WHERE empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'")
 or die("database error:". mysqli_error($connString));
 
 $totaldebe =  mysqli_query($connString, "SELECT totaldebe 
