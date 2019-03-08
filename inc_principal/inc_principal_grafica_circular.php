@@ -6,7 +6,7 @@
  </script>
 
 <?php
-mysql_select_db($database_conexion_smile, $conexion_smile);
+mysql_select_db($database_conexion_compucentro, $conexion_compucentro);
 //Perifericos
 $query_indumentaria= mysql_query("SELECT idventa from venta inner join lineaventa ON venta_idventa=idventa
 inner join producto on producto_idproducto=idproducto inner join categoriaproducto on

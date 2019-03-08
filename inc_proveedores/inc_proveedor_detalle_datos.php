@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idproveedor=$_GET['idproveedor'];
 $proveedor="SELECT * FROM proveedor WHERE idproveedor=$idproveedor";
 $q_proveedor=mysql_query($proveedor);

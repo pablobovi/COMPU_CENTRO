@@ -1,5 +1,5 @@
 <?php
-	mysql_select_db($database_conexion_smile,$conexion_smile);
+	mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 	$idproducto=$_GET['idproducto'];
 	$delete_producto="DELETE FROM producto WHERE idproducto=$idproducto";

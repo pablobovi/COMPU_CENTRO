@@ -1,5 +1,5 @@
 <?php 
- mysql_select_db($database_conexion_smile,$conexion_smile);
+ mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
   $q_proveedores=mysql_query("SELECT * FROM proveedor
     WHERE estado=1

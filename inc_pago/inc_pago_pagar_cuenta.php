@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idcuenta=$_GET['idcuenta'];
 
 $cliente="SELECT * FROM cuenta WHERE idcuenta=$idcuenta";

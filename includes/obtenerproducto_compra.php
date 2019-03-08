@@ -1,13 +1,13 @@
 
 <?php
-$hostname_conexion_smile = "localhost";
-$database_conexion_smile = "db_compu_nuevo";
-$username_conexion_smile = "root";
-$password_conexion_smile = "";
+$hostname_conexion_compucentro = "localhost";
+$database_conexion_compucentro = "db_compu_nuevo";
+$username_conexion_compucentro = "root";
+$password_conexion_compucentro = "";
 
-$conexion_smile = @mysql_connect($hostname_conexion_smile, $username_conexion_smile, $password_conexion_smile) or trigger_error(mysql_error(),E_USER_ERROR);
+$conexion_compucentro = @mysql_connect($hostname_conexion_compucentro, $username_conexion_compucentro, $password_conexion_compucentro) or trigger_error(mysql_error(),E_USER_ERROR);
 
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 
 $idproductojs = $_POST['idproductojs'];

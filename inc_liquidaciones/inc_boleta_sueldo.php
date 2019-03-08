@@ -1,4 +1,4 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
 ?>
 <form class="form" method="POST" action="inc_liquidaciones/boleta_pdf.php" role="form" >

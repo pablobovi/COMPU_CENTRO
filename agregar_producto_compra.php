@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
