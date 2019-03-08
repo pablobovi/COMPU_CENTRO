@@ -1,3 +1,9 @@
+<?php
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
+    $q_banco=mysql_query("SELECT * FROM banco")
+    or die(mysql_error());
+?>
+
 <form action="empleado_alta_ok.php" method="POST" role="form">
 <legend>Datos del Empleado</legend>
 
@@ -52,7 +58,7 @@
     </div>
   </div>
 
- 
+
 
   <div class="row control-group">
        <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -63,7 +69,7 @@
 
   <div class="row control-group">
     <div class="form-group floating-label-form-group controls col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        Categor&iacute;a 
+        Categor&iacute;a
         <?php include "includes/select_simple/inc_select_categoriaempleado.php" ?>
     </div>
   </div>
@@ -134,7 +140,26 @@
         <input type="text" class="form-control" placeholder="Manzana" id="" name="manzana">
     </div>
   </div>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        Banco
+        <div class="clearfix"></div>
+        <select class='form-control' name="idbanco">
+        <?php
+        while ($row_banco=mysql_fetch_array($q_banco)){
+          ?>
+          <option value="<?php echo $row_banco['idbanco']?>"><?php echo $row_banco['nombre'] ?></option>
+        <?php      }?>
+        </select>
+    </div>
 
+    <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label for="">CBU</label>
+          <input type="text" class="form-control" placeholder="Caja de Ahorro" id="" name="cajadeahorro">
+      </div>
+    </div>
+  </div>
     <br>
   </div>
   <legend></legend>
@@ -145,10 +170,3 @@
         </div>
       </div>
 </form>
-
-
-
-
-
-
-  

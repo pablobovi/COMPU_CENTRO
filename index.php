@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <!DOCTYPE html>
 <html >
 <head>

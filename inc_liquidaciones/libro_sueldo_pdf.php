@@ -1,4 +1,4 @@
-<?php require_once('../Connections/conexion_smile.php'); ?>
+<?php require_once('../Connections/conexion_compucentro.php'); ?>
 <?php include('../sis_acceso_ok.php'); ?>
 <?php
 include_once('../lib/pdf/fpdf.php');
@@ -39,12 +39,12 @@ $db = new dbObj();
 $connString =  $db->getConnstring();
 
 // $q_compra=mysql_query("SELECT * FROM compra");
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
   	$fecha_desde = $_POST['fechadesde'];
     $fecha_hasta = $_POST['fechahasta'];
 
-  $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+  $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq
   FROM detalleliquidacion t1
  INNER JOIN empleado t2 on empleado_idempleado=idempleado
  INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
@@ -53,7 +53,7 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
 }else {
   if (isset($_POST['fechadesde']) && $_POST['fechadesde']!='') {
     $fecha_desde = $_POST['fechadesde'];
-    $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+    $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq
     FROM detalleliquidacion t1
    INNER JOIN empleado t2 on empleado_idempleado=idempleado
    INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
@@ -61,13 +61,13 @@ if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fech
   } else {
       if (isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
         $fecha_hasta = $_POST['fechahasta'];
-        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq
         FROM detalleliquidacion t1
        INNER JOIN empleado t2 on empleado_idempleado=idempleado
        INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
             where t3.fechaliquidacion <= '$fecha_hasta'") or die("database error:". mysqli_error($connString));
       } else{
-        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq 
+        $result = mysqli_query($connString, "SELECT t2.apellidoempleado,t2.nombreempleado,t2.categoriaempleado_idcategoriaempleado,t3.fechaliquidacion,t1.totalhaber,t1.totaldebe,pagototal, t1.iddetalleliquidacion, t3.descripcionliq
             FROM detalleliquidacion t1
            INNER JOIN empleado t2 on empleado_idempleado=idempleado
            INNER JOIN liquidacion t3 on liquidacion_idliquidacion=idliquidacion
@@ -143,37 +143,16 @@ while($row=mysqli_fetch_assoc($result))
     $concepto_result = mysqli_query($connString, "SELECT concepto_idconcepto, subtotal, descripcionconcepto from detalleconcepto
       INNER JOIN concepto on concepto_idconcepto=idconcepto WHERE
       detalleliquidacion_iddetalleliquidacion = $iddetalleliquidacion ") or die("database error:". mysqli_error($connString));
-      while($row_concepto=mysqli_fetch_assoc($concepto_result))
-        {
+      while($row_concepto=mysqli_fetch_assoc($concepto_result)){
           switch ($row_concepto['concepto_idconcepto']) {
 
             case 2:
                 $antiguedad = $row_concepto['subtotal'];
                 break;
-            // case 3:
-            //     $subsidio_sepelio = $row_concepto['subtotal'];
-            //     break;
-            // case 4:
-            //     $subsidio_familiar= $row_concepto['subtotal'];
-            //     break;
-            // case 5:
-            //     $salario_familiar = $row_concepto['subtotal'];
-            //     break;
-            // case 6:
-            //     $aporte_jubilatorio= $row_concepto['subtotal'];
-            //     break;
-            // case 7:
-            //     $obra_social= $row_concepto['subtotal'];
-            //     break;
-            // case 8:
-            //     $aporte_pami= $row_concepto['subtotal'];
-            //     break;
+
             case 9:
                 $obra_social= $row_concepto['subtotal'];
                 break;
-            // case 10:
-            //   $aporte_pami= $row_concepto['subtotal'];
-            //     break;
             case 11:
                 $asignacion_por_hijo= $row_concepto['subtotal'];
                 break;
@@ -189,8 +168,8 @@ while($row=mysqli_fetch_assoc($result))
             case 15:
              $asignacion_por_hijo_discapacitado= $row_concepto['subtotal'];
                  break;
-                         }
-}
+          }
+      }
 
         $pdf->Ln();
         $pdf->SetTextColor(100);
@@ -219,8 +198,6 @@ while($row=mysqli_fetch_assoc($result))
   }
 
 $pdf->Ln();
-
-
 
 $pdf->SetX(228);
 $pdf->SetTextColor(208, 49, 53);

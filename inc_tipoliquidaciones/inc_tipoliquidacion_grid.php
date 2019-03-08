@@ -18,7 +18,6 @@
 	 		<td class="col-xs-5 col-sm-5 col-md-5 col-lg-5"><?php echo $row_tipoliquidacion['descripcion'] ?></td>
       <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><a href="concepto_edicion.php?idconcepto=<?php echo $row_concepto['idconcepto']; ?>"><button type="button" class= "btn btn-info btn-xs"> <span class="glyphicon glyphicon-pencil"> Editar</span> </button></a></td>
 	 		<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><a href="concepto_eliminar.php?idconcepto=<?php echo $row_concepto['idconcepto']; ?>"><button type="button" class= "btn btn-primary btn-xs"><span class="glyphicon glyphicon-trash"> Borrar </span></button></a></td>
-
     </tr>
   <?php 	}
   }	?>

@@ -1,7 +1,8 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idempleado=$_GET['idempleado'];
 $iddireccion=$_GET['iddireccion'];
+$q_parentezco=mysql_query("SELECT * FROM parentesco");
 ?>
 
 <table class='table table-bordered table-striped'>
@@ -22,7 +23,7 @@ $iddireccion=$_GET['iddireccion'];
 <tr>
   <td><div align='right'>Dni(*): </div></td>
   <td><div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><input class="form-control" type="number" min="0" name="dni_pariente" size="25" value="" required></div></td>
-</tr> 
+</tr>
 
 <tr>
   <td><div align='right'>Fecha de Nacimiento (*): </div></td>
@@ -31,12 +32,24 @@ $iddireccion=$_GET['iddireccion'];
 
 <tr>
   <td><div align='right'>Parentezco: </div></td>
-  <td><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><input class="form-control" type="text" name="parentesco" value=""></div></td>
+  <td>
+    <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+          <div class="clearfix"></div>
+          <select class='form-control' name="idparentesco">
+          <?php
+          while ($row_parentesco=mysql_fetch_array($q_parentezco)){
+            ?>
+            <option value="<?php echo $row_parentesco['idparentesco']?>"><?php echo $row_parentesco['descripcion'] ?></option>
+          <?php      }?>
+          </select>
+      </div>
+
 </tr>
 
 <tr>
   <td></td>
   <td><input type="submit" class="btn btn-info pull-right" name="button" id="button" value="Enviar"></td>
 </tr>
-</form> 
+</form>
 </table>

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php 
-mysql_select_db($database_conexion_smile,$conexion_smile);
+=======
+<?php
+>>>>>>> 06d5285cacf42444af9edb54a108d738e549e874
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 $idusuario=$_SESSION["idusuario"];
 $usuario = "SELECT * FROM usuario inner join empleado on empleado_idempleado=idempleado WHERE idusuario=$idusuario";
@@ -31,8 +35,5 @@ $row_usuario = mysql_fetch_array($q_usuario);
 					<input class="form-control" value="<?php echo $row_usuario['apellidoempleado'] ?>" readonly>
 				</div>
 	</div>
-
-
   </div>
 </div>
-

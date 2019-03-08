@@ -1,7 +1,7 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <?php date_default_timezone_set('America/Argentina/Tucuman'); ?>
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
   $fechalogin=$_SESSION['fechalogin'];
   $idempleado=$_SESSION["idempleado"];
   $formato = 'Y-m-d H:i:s';

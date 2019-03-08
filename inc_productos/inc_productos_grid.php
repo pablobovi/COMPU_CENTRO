@@ -51,7 +51,6 @@ if ($row_producto['stockproducto'] < $row_producto['stockcritico']){ ?>
 	 		<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><?php echo $row_producto['stockproducto'] ?></td>
 	 		<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $row_producto['precioventa'] ?></td>
 	 		<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><i class="fa fa-check" aria-hidden="true"></i></td>
-
 			<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><a href="producto_detalle.php?idproducto=<?php echo $row_producto['idproducto']; ?>"><button type="button" class= "btn btn-warning btn-xs"><span class="glyphicon glyphicon-list"> Detalle</span> </button></a></td>
 	 		<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><a href="producto_edicion.php?idproducto=<?php echo $row_producto['idproducto']; ?>"><button type="button" class= "btn btn-info btn-xs"> <span class="glyphicon glyphicon-pencil"> Editar </span></button></a></td>
 	 		<td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><a href="producto_eliminar.php?idproducto=<?php echo $row_producto['idproducto']; ?>"><button type="button" class= "btn btn-primary btn-xs"> <span class="glyphicon glyphicon-trash">  Borrar </span></button></a></td>

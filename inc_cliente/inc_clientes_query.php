@@ -1,6 +1,6 @@
 <?php
 
-mysql_select_db($database_conexion_smile,$conexion_smile) or die("Error, no pudo conectarce a la base de datos ");
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro) or die("Error, no pudo conectarce a la base de datos ");
 
 if (isset($_GET['busca_cliente'])) {
 	$busca_cliente = $_GET['busca_cliente'];

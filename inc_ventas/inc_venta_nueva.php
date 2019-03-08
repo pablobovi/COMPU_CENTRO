@@ -1,8 +1,8 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
   $tipo=mysql_query("SELECT * FROM tipo");
   $venta=mysql_query("SELECT * FROM venta ORDER BY idventa DESC LIMIT 0,1");
   $row_venta=mysql_fetch_array($venta);
-  
+
   $ult_venta=$row_venta['idventa']+1;
 
 ?>
@@ -13,15 +13,15 @@
           Numero Factura
 
           <input type="text" name="numerofactura" id="numerofactura" class="form-control" value="0000<?php echo $ult_venta?>" required="required" readonly>
-      </div> 
+      </div>
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
       </div>
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Fecha Venta
         <input type="text" name="fechaventa" id="inputFechaventa" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
-    </div> 
+    </div>
   </div>
-  
+
 Datos del Cliente
  <legend></legend>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -36,7 +36,7 @@ Datos del Cliente
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Cuil
           <input type="text" name="cuilcliente" id="inputcuilcliente" class="form-control" value="00-00000000" required="required" readonly>
-      </div>  
+      </div>
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Iva
           <input type="text" name="itipo" id="inputtipo" class="form-control" value="Consumidor Final" required="required" readonly>
@@ -95,7 +95,7 @@ Datos del Cliente
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <br>
   <br>
-  
+
   <button type="submit" class="btn boton-send btn-info pull-right btn-md">Aceptar Venta</button>
 
   <button type="button" id="cancelar" class="btn btn-danger btn-primary pull-left btn-md">Cancelar Venta</button>
@@ -135,24 +135,5 @@ var total = $('#inputsubtotal').val();
           }
         }
 }
- 
-</script> 
 
-<!-- ESTE SCRIP ME PERMITE AGREGAR FILAS
-<script type="text/javascript">
-$(function(){
-  // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
-  $("#agregar").click(function(){
-    $("#tabla tbody tr:eq(0)").clone().removeClass('fila-base').appendTo("#tabla tbody");
-  });
- 
-  // Evento que selecciona la fila y la elimina 
-  $(document).on("click",".eliminar",function(){
-    var parent = $(this).parents().get(0);
-    $(parent).remove();
-  });
-});
- 
 </script>
-
--->

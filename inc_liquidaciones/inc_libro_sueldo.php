@@ -28,6 +28,5 @@ Hasta
   <br>
 
   <button type="submit" class="btn boton-send btn-info pull-right btn-md" >Generar Reporte</button>
-
     </div>
 </form>

@@ -1,4 +1,4 @@
-<?php require_once('../Connections/conexion_smile.php'); ?>
+<?php require_once('../Connections/conexion_compucentro.php'); ?>
 <?php include('../sis_acceso_ok.php'); ?>
 <?php
 include_once('../lib/pdf/fpdf.php');
@@ -38,8 +38,11 @@ function Footer()
 $db = new dbObj();
 $connString =  $db->getConnstring();
 
+<<<<<<< HEAD
 // $q_compra=mysql_query("SELECT * FROM compra");
-mysql_select_db($database_conexion_smile,$conexion_smile);
+=======
+>>>>>>> 06d5285cacf42444af9edb54a108d738e549e874
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
   	$fecha_desde = $_POST['fechadesde'];
     $fecha_hasta = $_POST['fechahasta'];
