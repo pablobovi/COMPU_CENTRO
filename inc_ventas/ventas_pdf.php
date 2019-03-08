@@ -38,7 +38,10 @@ function Footer()
 $db = new dbObj();
 $connString =  $db->getConnstring();
 
+<<<<<<< HEAD
 // $q_compra=mysql_query("SELECT * FROM compra");
+=======
+>>>>>>> 06d5285cacf42444af9edb54a108d738e549e874
 mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 if (isset($_POST['fechadesde']) && $_POST['fechadesde']!=''&& isset($_POST['fechahasta']) && $_POST['fechahasta']!='') {
   	$fecha_desde = $_POST['fechadesde'];

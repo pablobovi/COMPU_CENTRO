@@ -5,9 +5,7 @@
     $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
 
 ?>
-<form ACTION="agregar_linea_venta.php" METHOD="POST" onsubmit="return validar()">
-
-<!-- <form  action="liquidacion_alta_ok_nuevo.php" method="POST" class="form-inline" role=form onsubmit="return verificar();" onsubmit="validad();"> -->
+<form ACTION="liquidacion_alta_ok_nuevo.php" METHOD="POST" class="form-"  onsubmit="return validar()">
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
@@ -73,13 +71,11 @@ Hasta
             });
     });
     </script>
-<!-- valida que el cliente este registrado si se ingresa condicion de pago cuenta corriente -->
 <script>
     function validar(){
-        // $value1=$_POST['fechadesde'];
-        // $value2=$_POST['value2'];
     var fechadesde = $('#fechadesde').val();
     var fechahasta = $('#fechahasta').val();
+
     var desde = fechadesde.substring(0, 7);
     var hasta = fechahasta.substring(0, 7);
 
@@ -88,9 +84,9 @@ Hasta
      return false
      }
      if(fechadesde > fechahasta){
-         alert('La fecha "Hasta" no puede ser menor')
-         return false
+       alert('La fecha "Hasta" no puede ser menor')
+       return false
      }
+
 }
- 
-</script> 
+</script>

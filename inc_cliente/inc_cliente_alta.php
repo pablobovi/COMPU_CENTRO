@@ -94,6 +94,4 @@
           <button type="submit" class="btn boton-send btn-info pull-right btn-lg">Aceptar</button>
         </div>
       </div>
-
-
 </form>

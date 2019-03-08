@@ -16,7 +16,7 @@
 <?php //si el tipo liquidacion se carga ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	<div><h2>Alta de  Liquidacion exitosa!</h2></div>
-	<br>
+	<br>	
 </div>
 <div ><img src="images/icono_ok_grande.png"></div>
 <div class="clearfix">

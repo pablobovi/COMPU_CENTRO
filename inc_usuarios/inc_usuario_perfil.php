@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php 
+=======
+<?php
+>>>>>>> 06d5285cacf42444af9edb54a108d738e549e874
 mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 $idusuario=$_SESSION["idusuario"];
@@ -31,8 +35,5 @@ $row_usuario = mysql_fetch_array($q_usuario);
 					<input class="form-control" value="<?php echo $row_usuario['apellidoempleado'] ?>" readonly>
 				</div>
 	</div>
-
-
   </div>
 </div>
-

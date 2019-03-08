@@ -19,9 +19,6 @@
 		WHERE idproducto=$idproducto";
 		mysql_query($update_producto);
 
-
-
-
 ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	<div><h2>Modificaci&oacute;n de producto exitosa!</h2></div>

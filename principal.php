@@ -18,21 +18,7 @@
 	     <img src="images/logo.png" alt="Logo">
 	</center>
 <?php
-/*	if($_SESSION["tipo_usuario"]==1)
-	{
-		include "inc_principal/inc_principal_grafica_circular.php";
-	}
-	else
-	{
-		include "inc_principal/inc_principal_grafica_circular.php";
-
-	}*/
-
-
-
 ?>
-
-
 
 <?php include "inc_footer.php" ?>
 </div>

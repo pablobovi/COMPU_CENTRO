@@ -8,14 +8,11 @@
     <li><a href="historico_ventas.php"><span class="fa fa-caret-right"></span> Listado de ventas</a></li>
   </ul>
 </li>
-<!--
-<li data-popover="true" data-content="Acciones de las estaciones." rel="popover" data-placement="right">
--->
+
 <?php if($_SESSION["nivel"]>=2){ ?>
 <li><a href="#" data-target=".premium-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-shopping-basket"></i> Compras<i class="fa fa-collapse"></i></a></li>
 <li>
   <ul class=" premium-menu nav nav-list collapse">
-    <!--<li class="visible-xs visible-sm"><a href="#">- &uacute;ltimos datos -</a></span> solo visible en el celular-->
     <li><a href="compra_nueva.php"><span class="fa fa-caret-right"></span> Crear Compra</a></li>
     <li><a href="historico_compras.php"><span class="fa fa-caret-right"></span> Listado de compras </a></li>
   </ul>

@@ -8,9 +8,7 @@
 		$cantidad_empleados=count($idempleado);
 		$cantidad_conceptos=count($idconcepto);
 
-
-
-    //veo si hay una fecha de liquidacion sino tomo la fecha actual
+    //veo si hay una fecha de liquidacion
   if ($fechaliquidacion==0) {
 	if (isset($_POST['fechaliquidacion']) && $_POST['fechaliquidacion']!="") {
 		$fechaliquidacion=$_POST['fechaliquidacion'];
@@ -42,26 +40,26 @@
 			$basicoempleado=$row_empleados['salariobasicocategoria']/2;
 		}
 		else{
-		$basicoempleado=$row_empleados['salariobasicocategoria'];
-		}
+			$basicoempleado=$row_empleados['salariobasicocategoria'];
+				}
 		$basicoempleado;
 
 		$separafecha= explode('-', $fechaingreso);
-   		$dia = $separafecha[2];
-   		$mes = $separafecha[1];
-     	$anio = $separafecha[0];
+ 		$dia = $separafecha[2];
+ 		$mes = $separafecha[1];
+   	$anio = $separafecha[0];
 
-      	$diac =date("d");
-       	$mesc =date("m");
-       	$anioc =date("Y");
+  	$diac =date("d");
+   	$mesc =date("m");
+   	$anioc =date("Y");
 
         //saco la cantidad de años de antiguedad del empleado
 
-      	$antiguedad =  $anioc-$anio;
-      	if($mesc < $mes && $diac < $dia || $mesc < $mes || $diac < $dia){
-    		$antiguedad_aux = $antiguedad - 1;
-     		$antiguedad = $antiguedad_aux;
-     	}
+  	$antiguedad =  $anioc-$anio;
+  	if($mesc < $mes && $diac < $dia || $mesc < $mes || $diac < $dia){
+		$antiguedad_aux = $antiguedad - 1;
+ 		$antiguedad = $antiguedad_aux;
+	}
      	$antiguedad;
         //creo la liquidacion
      	mysql_query("INSERT INTO liquidacion (empleado_idempleado, fechaliquidacion) VALUES ('$row_empleados[idempleado]', '$fechaliquidacion')");
@@ -84,7 +82,7 @@
      			else{
      				$cantidad=1;
      			}
-     		}
+     	}
 
      		$montofijo = $row_conceptos['montofijo'];
      		$porcentaje= $row_conceptos['montovariable']/100;
