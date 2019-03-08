@@ -72,30 +72,38 @@ $db = new dbObj();
 $connString =  $db->getConnstring();
 
 
-// mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
-// $result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subtotal,  NULL
-// FROM detalleliquidacion
-// INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
-// INNER JOIN concepto ON concepto_idconcepto=idconcepto
-// WHERE empleado_idempleado=$idempleado AND tipoconcepto='1'
-// AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
-//                             where  empleado_idempleado = $idempleado
-//                             )
-// UNION
-//
-// SELECT descripcionconcepto, cantidad,  NULL, subtotal
-// FROM detalleliquidacion
-// INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
-// INNER JOIN concepto ON concepto_idconcepto=idconcepto
-// WHERE empleado_idempleado=$idempleado AND tipoconcepto='0'
-// AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
-//                               where  empleado_idempleado = $idempleado  )") or die("database error:". mysqli_error($connString));
-//
-// $pagototal =  mysqli_query($connString, "SELECT pagototal
-// FROM detalleliquidacion
-// WHERE iddetalleliquidacion
-// in ( SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion)")
-// or die("database error:". mysqli_error($connString));
+ mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
+ $result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subtotal,  NULL 
+ FROM detalleliquidacion 
+ INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
+ INNER JOIN concepto ON concepto_idconcepto=idconcepto 
+ WHERE empleado_idempleado='$idempleado' AND tipoconcepto='1' 
+ AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
+                             where  empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'                           
+                             )
+ UNION
+ SELECT descripcionconcepto, cantidad,  NULL, subtotal
+ FROM detalleliquidacion 
+ INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
+ INNER JOIN concepto ON concepto_idconcepto=idconcepto 
+ WHERE empleado_idempleado='$idempleado' AND tipoconcepto='0'
+ AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
+                               where  empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'  )") or die("database error:". mysqli_error($connString));
+
+
+$pagototal =  mysqli_query($connString, "SELECT pagototal
+FROM detalleliquidacion
+WHERE empleado_idempleado='$idempleado' AND MONTH(fechadeposito) = $mesliquidacion")
+or die("database error:". mysqli_error($connString));
+
+$totaldebe =  mysqli_query($connString, "SELECT totaldebe 
+FROM detalleliquidacion 
+WHERE empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'")
+or die("database error:". mysqli_error($connString));
+$totalhaber =  mysqli_query($connString, "SELECT totalhaber 
+FROM detalleliquidacion 
+WHERE empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'")
+or die("database error:". mysqli_error($connString));
 
 $total = 0;
 while($row=mysqli_fetch_assoc($pagototal))
