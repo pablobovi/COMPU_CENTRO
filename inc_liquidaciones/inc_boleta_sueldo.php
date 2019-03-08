@@ -2,7 +2,7 @@
 $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM empleado");
 ?>
 <form class="form" method="POST" action="inc_liquidaciones/boleta_pdf.php" role="form" >
-  
+
   <div class="row control-group">
     <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-9">
         <input type="text" name="fechaliquidacion" id="inputFechaLiquidacion" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>" required="required" readonly>
@@ -23,7 +23,7 @@ Desde
                           <input type="hidden" name="verifica" id="inputverificafechainicio" class="form-control" value="">
 
     </div>
-    
+
 
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -34,6 +34,3 @@ Desde
 
     </div>
 </form>
-
-
-<!-- valida que el cliente este registrado si se ingresa condicion de pago cuenta corriente -->

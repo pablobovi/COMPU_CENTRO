@@ -1,7 +1,7 @@
 <?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
-	
+
 	$idempleado=$_SESSION["idempleado"];
 	$numerofactura=$_POST['numerofactura'];
 	$fechacompra=$_POST['fechacompra'];
@@ -17,20 +17,19 @@
 	$brutocompra=$totalcompra/1.21;
 	$iva=$totalcompra-$brutocompra;
 
-	// echo round($iva, 2); REDONDEA A DOS DECIMALES
 
-	mysql_query("INSERT INTO compra (numerofactura, fechacompra, totalcompra, proveedor_idproveedor, empleado_idempleado) 
+	mysql_query("INSERT INTO compra (numerofactura, fechacompra, totalcompra, proveedor_idproveedor, empleado_idempleado)
 	VALUES ('$numerofactura', '$fechacompra', '$totalcompra', '$idproveedor', '$idempleado')");
-	
+
 	$compra=mysql_query("SELECT * FROM compra ORDER BY idcompra DESC LIMIT 0,1");
 	$row_compra=mysql_fetch_array($compra);
-	
+
 	$ult_compra=$row_compra['idcompra'];
 
 	mysql_query("UPDATE lineacompra SET compra_idcompra='$ult_compra' WHERE compra_idcompra='1'");
 
 	//Actualiza stock de productos y precio de compra
-	$stock_prod=mysql_query("SELECT cantidad,stockproducto,idproducto,neto FROM lineacompra 
+	$stock_prod=mysql_query("SELECT cantidad,stockproducto,idproducto,neto FROM lineacompra
 		INNER JOIN producto ON producto_idproducto=idproducto
 		WHERE compra_idcompra=$ult_compra");
 	while ($row_stock_prod=mysql_fetch_array($stock_prod)) {

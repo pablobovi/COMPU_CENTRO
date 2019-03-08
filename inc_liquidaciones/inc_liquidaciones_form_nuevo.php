@@ -84,11 +84,9 @@ Hasta
      return false
      }
      if(fechadesde > fechahasta){
-         alert('La fecha "Hasta" no puede ser menor')
-         return false
+       alert('La fecha "Hasta" no puede ser menor')
+       return false
      }
-   
-}
 
- 
-</script> 
+}
+</script>

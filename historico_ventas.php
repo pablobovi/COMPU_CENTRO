@@ -2,12 +2,12 @@
 <?php include('sis_acceso_ok.php'); ?>
 <!doctype html>
 <html lang="es">
-<head>    
+<head>
   <?php include "sis_header.php" ?>
 </head>
 <body class=" theme-blue">
   <?php include "sis_script.php" ?>
-  <?php include "sis_menu_usuario.php" ?>   
+  <?php include "sis_menu_usuario.php" ?>
   <?php include "sis_menu.php" ?>
 
 <div class="content">
@@ -15,31 +15,25 @@
     <h1 class="page-title">Ventas</h1>
   </div>
   <div class="main-content">
-    <!-- Contenido principal  Para agregar filtros de ventas por mes
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Listado de ventas</a></li>
-      <li><a href="#">Filtro de ventas</a></li> 
-    </ul> 
-    -->
     <br>
     <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in">        
+      <div class="tab-pane active in">
       <?php  include "includes/buscador/inc_buscador_ventas.php" ?>
       <br>
       <form action="historico_ventas_impr.php" method="POST" role="form">
         <button type="submit" class="btn btn-default"><strong>Imprimir Listado de Ventas</strong></button>
       </form>
-      <br>  
+      <br>
       <legend></legend>
       <?php include "inc_ventas/inc_ventas_query.php" ?>
-      <?php include "inc_ventas/inc_ventas_grid_historico.php"; ?>         
-      </div>      
-    </div>     
+      <?php include "inc_ventas/inc_ventas_grid_historico.php"; ?>
+      </div>
+    </div>
 
     <?php include "inc_footer.php" ?>
   </div>
 </div>
-<?php include "sis_script_bootstrap.php" ?> 
-  
+<?php include "sis_script_bootstrap.php" ?>
+
 </body>
 </html>

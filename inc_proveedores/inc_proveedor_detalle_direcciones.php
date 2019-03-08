@@ -8,7 +8,6 @@ WHERE proveedor_idproveedor=$idproveedor";
 $q_direccion=mysql_query($direccion);
 
 ?>
-
 <table class='table table-bordered table-striped'>
 	<thead>
 		<th>Provincia</th>

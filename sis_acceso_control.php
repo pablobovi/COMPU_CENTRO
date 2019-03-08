@@ -39,8 +39,6 @@
                $q_insertarlogin = mysql_query($insertlogin);
                mysql_fetch_array($q_insertarlogin);
 
-
-
                //Direccionamos a nuestra página principal del sistema.
                header ("Location: principal.php");
 
