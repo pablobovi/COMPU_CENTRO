@@ -1,5 +1,5 @@
 <?php
-	mysql_select_db($database_conexion_smile,$conexion_smile);
+	mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 
 	 $idproducto=$_POST['idproducto'];
@@ -18,9 +18,6 @@
 	$update_producto="UPDATE producto SET nombreproducto='$nombreproducto',marca='$marcaproducto', stockproducto='$stockproducto', porcentajeganancia='$porcganancia', stockcritico='$stockcritico', preciocompra='$preciocompra', categoriaproducto_idcategoriaproducto='$idcategoriaproductos', precioventa='$preciopublico'
 		WHERE idproducto=$idproducto";
 		mysql_query($update_producto);
-
-
-
 
 ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

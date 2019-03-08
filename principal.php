@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexion_smile.php'); ?>
+<?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <!doctype html>
 <html lang="es">
@@ -18,21 +18,7 @@
 	     <img src="images/logo.png" alt="Logo">
 	</center>
 <?php
-/*	if($_SESSION["tipo_usuario"]==1)
-	{
-		include "inc_principal/inc_principal_grafica_circular.php";
-	}
-	else
-	{
-		include "inc_principal/inc_principal_grafica_circular.php";
-
-	}*/
-
-
-
 ?>
-
-
 
 <?php include "inc_footer.php" ?>
 </div>

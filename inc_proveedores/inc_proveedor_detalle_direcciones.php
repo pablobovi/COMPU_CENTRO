@@ -1,5 +1,5 @@
 <?php
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $idproveedor=$_GET['idproveedor'];
 $direccion="SELECT * FROM direccion
 INNER JOIN localidad ON localidad_idlocalidad=idlocalidad
@@ -8,7 +8,6 @@ WHERE proveedor_idproveedor=$idproveedor";
 $q_direccion=mysql_query($direccion);
 
 ?>
-
 <table class='table table-bordered table-striped'>
 	<thead>
 		<th>Provincia</th>

@@ -1,4 +1,4 @@
-<?php require_once('../Connections/conexion_smile.php'); ?>
+<?php require_once('../Connections/conexion_compucentro.php'); ?>
 <?php include('../sis_acceso_ok.php'); ?>
 <?php include_once('../lib/pdf/fpdf.php');
 $idempleado=$_POST['idempleado'];
@@ -60,7 +60,7 @@ function Footer()
 $db = new dbObj();
 $connString =  $db->getConnstring();
 
-mysql_select_db($database_conexion_smile,$conexion_smile);
+mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subtotal,  NULL 
 FROM detalleliquidacion 
 INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion

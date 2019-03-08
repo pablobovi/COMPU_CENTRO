@@ -1,4 +1,4 @@
-<?php mysql_select_db($database_conexion_smile,$conexion_smile);
+<?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 $q_conceptos=mysql_query("SELECT idconcepto,descripcionconcepto FROM concepto WHERE estado=1");
 ?>
 <form action="tipoliquidacion_alta_ok.php" method="POST" role="form">

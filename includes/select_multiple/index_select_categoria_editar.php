@@ -1,5 +1,5 @@
 <?php 
-  mysql_select_db($database_conexion_smile,$conexion_smile);
+  mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
   $categoria="SELECT * FROM categoriaproducto ORDER BY idcategoriaproducto";
   $q_categoria=mysql_query($categoria);  
 

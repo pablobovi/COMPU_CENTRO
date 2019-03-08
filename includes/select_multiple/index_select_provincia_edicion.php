@@ -1,6 +1,6 @@
 
 <?php 
-  mysql_select_db($database_conexion_smile,$conexion_smile);
+  mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
   $provincia="SELECT * FROM provincia ORDER BY nombreprovincia";
   $q_provincia=mysql_query($provincia);  
 

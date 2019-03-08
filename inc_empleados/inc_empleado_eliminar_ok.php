@@ -1,5 +1,5 @@
 <?php
-	mysql_select_db($database_conexion_smile,$conexion_smile);
+	mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
 
 	$idempleado=$_GET['idempleado'];
 	$iddireccion=$_GET['iddireccion'];
@@ -10,8 +10,6 @@
 	mysql_query($delete_grupofamiliar);
 	$delete_empleado="UPDATE empleado SET estado='0' WHERE idempleado=$idempleado";
 	mysql_query($delete_empleado);
-	/*$delete_direccion="DELETE FROM direccion WHERE iddireccion=$iddireccion";
-	mysql_query($delete_direccion);*/
 ?>
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	<div><h2>Eliminaci&oacute;n exitosa!</h2></div>
