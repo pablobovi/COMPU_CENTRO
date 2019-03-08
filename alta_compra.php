@@ -1,11 +1,7 @@
 <?php require_once('Connections/conexion_compucentro.php'); ?>
 <?php include('sis_acceso_ok.php'); ?>
 <?php mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 06d5285cacf42444af9edb54a108d738e549e874
 	$idempleado=$_SESSION["idempleado"];
 	$numerofactura=$_POST['numerofactura'];
 	$fechacompra=$_POST['fechacompra'];
