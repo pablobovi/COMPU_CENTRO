@@ -9,7 +9,37 @@ class PDF extends FPDF
 // Page header
 function Header()
 {
-
+  $idempleado=$_POST['idempleado'];
+$mesliquidacion=$_POST['mesliquidacion'];
+  $db = new dbObj();
+$connString =  $db->getConnstring();
+  $nombreempleado =  mysqli_query($connString, "SELECT nombreempleado, apellidoempleado
+FROM empleado
+WHERE idempleado = '$idempleado'")
+or die("database error:". mysqli_error($connString));
+//$nombreempleado1 = NULL;
+while($row=mysqli_fetch_assoc($nombreempleado))
+  {
+    $nombreempleado1 = ("Nombre Empleado: ").($row['nombreempleado']).(" ").($row['apellidoempleado']);
+  }
+$fechadeposito =  mysqli_query($connString, "SELECT fechadeposito
+FROM detalleliquidacion
+where  empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion' ")
+or die("database error:". mysqli_error($connString));
+//$nombreempleado1 = NULL;
+while($row=mysqli_fetch_assoc($fechadeposito))
+  {
+    $fechadeposito1 = ("Fecha Deposito: ").($row['fechadeposito']);
+  }
+    $fechaingreso =  mysqli_query($connString, "SELECT fechaingresoempleado
+    FROM empleado
+    WHERE idempleado = '$idempleado'")
+    or die("database error:". mysqli_error($connString));
+    //$nombreempleado1 = NULL;
+    while($row=mysqli_fetch_assoc($fechaingreso))
+      {
+        $fechaingreso1 = ("Fecha de ingreso: ").($row['fechaingresoempleado']);
+      }
     // Logo
     $this->SetTitle('BOLETA');
     $this->Image('../images/logo.png',40,5,25);
@@ -21,15 +51,15 @@ function Header()
     $this->Write(5,'Boleta de Sueldo');
     $this->Ln(20);
     $this->Cell(80,5,'CompuCentro',0,0,'C');
-    $this->Cell(80,5,'Nombre Empleado',0,2,'C');
+    $this->Cell(80,5,$nombreempleado1,20,2,'C');
     $this->Ln(1);
     $this->Cell(80,5,'Cordoba 828',0,0,'C');
-    $this->Cell(80,5,'Fecha Ingreso',0,2,'C');
+    $this->Cell(80,5,$fechaingreso1,20,2,'C');
     $this->Ln(1);
     $this->Cell(80,5,'Cuit: 3070881234',0,0,'C');
-    $this->Cell(80,5,'ID Empleado',20,2,'C');
+    $this->Cell(80,5,$apellidoempleado1,20,2,'C');
     $this->Ln(1);
-    $this->Cell(80,5,'Liquidacion: Febrero',0,0,'C');
+    $this->Cell(80,5,$fechadeposito1,0,0,'C');
     // Line break
     $this->Ln(20);
 }
@@ -51,35 +81,43 @@ $db = new dbObj();
 $connString =  $db->getConnstring();
 
 
-mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
-$result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subtotal,  NULL
-FROM detalleliquidacion
-INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
-INNER JOIN concepto ON concepto_idconcepto=idconcepto
-WHERE empleado_idempleado=$idempleado AND tipoconcepto='1'
-AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
-                            where  empleado_idempleado = $idempleado
-                            )
-UNION
+ mysql_select_db($database_conexion_compucentro,$conexion_compucentro);
+ $result = mysqli_query($connString, "SELECT descripcionconcepto, cantidad, subtotal,  NULL
+ FROM detalleliquidacion
+ INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
+ INNER JOIN concepto ON concepto_idconcepto=idconcepto
+ WHERE empleado_idempleado='$idempleado' AND tipoconcepto='1'
+ AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
+                             where  empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'
+                             )
+ UNION
+ SELECT descripcionconcepto, cantidad,  NULL, subtotal
+ FROM detalleliquidacion
+ INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
+ INNER JOIN concepto ON concepto_idconcepto=idconcepto
+ WHERE empleado_idempleado='$idempleado' AND tipoconcepto='0'
+ AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
+                               where  empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'  )") or die("database error:". mysqli_error($connString));
 
-SELECT descripcionconcepto, cantidad,  NULL, subtotal
-FROM detalleliquidacion
-INNER JOIN detalleconcepto ON detalleliquidacion_iddetalleliquidacion=iddetalleliquidacion
-INNER JOIN concepto ON concepto_idconcepto=idconcepto
-WHERE empleado_idempleado=$idempleado AND tipoconcepto='0'
-AND iddetalleliquidacion IN (SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion
-                              where  empleado_idempleado = $idempleado  )") or die("database error:". mysqli_error($connString));
 
 $pagototal =  mysqli_query($connString, "SELECT pagototal
 FROM detalleliquidacion
-WHERE iddetalleliquidacion
-in ( SELECT MAX(iddetalleliquidacion) FROM detalleliquidacion)")
+WHERE empleado_idempleado='$idempleado' AND MONTH(fechadeposito) = $mesliquidacion")
+or die("database error:". mysqli_error($connString));
+
+$totaldebe =  mysqli_query($connString, "SELECT totaldebe
+FROM detalleliquidacion
+WHERE empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'")
+or die("database error:". mysqli_error($connString));
+$totalhaber =  mysqli_query($connString, "SELECT totalhaber
+FROM detalleliquidacion
+WHERE empleado_idempleado = '$idempleado' AND MONTH(fechadeposito) = '$mesliquidacion'")
 or die("database error:". mysqli_error($connString));
 
 $total = 0;
 while($row=mysqli_fetch_assoc($pagototal))
   {
-    $total = $total + ($row['pagototal']* -1);
+    $total = $total + ($row['pagototal']);
   }
 $total1 = 0;
 while($row=mysqli_fetch_assoc($totaldebe))
@@ -99,8 +137,8 @@ $pdf->SetTextColor(39, 138, 226);
 $pdf->SetFont('Times','B',9);
 $pdf->Cell(31,8,"Concepto",1,0,'C');
 $pdf->Cell(31,8,"Cantidad",1,0,'C');
-$pdf->Cell(31,8,"Haber",1,0,'C');
 $pdf->Cell(31,8,"Debe",1,0,'C');
+$pdf->Cell(31,8,"Haber",1,0,'C');
 
 foreach($result as $row) {
   $pdf->SetTextColor(100);
