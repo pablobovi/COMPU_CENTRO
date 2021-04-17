@@ -38,7 +38,7 @@
 					<td class="info"><div align='right'>Cuil: </div></td>
 					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['cuilcliente']; ?></td>
 					<td class="info"><div align='right'>Condici&oacute;n IVA: </div></td>
-					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['tiponoombre']; ?></td>
+					<td align="lef" colspan="1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><?php echo $row_venta['tiponombre']; ?></td>
 				</tr>
 				<tr>
 					<td class="info" ><div class="info" align='right'>Empleado: </div></td>
