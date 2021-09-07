@@ -196,7 +196,7 @@ while($row=mysqli_fetch_assoc($result))
         $pdf->SetTextColor(242, 19, 19);
         $pdf->Cell(15,6,$totaldebe,1,0,'C');
         $pdf->SetTextColor(100);
-        $pdf->Cell(16,6,$salario+$pagototal,1,0,'C');
+        $pdf->Cell(16,6,$pagototal,1,0,'C');
   }
 
 $pdf->Ln();
