@@ -7,14 +7,14 @@ if (isset($_GET['busca_compra'])) {
 	$q_compra=mysql_query("SELECT * FROM compra 
 	INNER JOIN empleado ON empleado_idempleado=idempleado
 	INNER JOIN proveedor ON proveedor_idproveedor=idproveedor
-	WHERE razonsocialproveedor LIKE '%$busqueda_compra%' AND idcompra!=1 ORDER BY fechacompra DESC");
+	WHERE razonsocialproveedor LIKE '%$busqueda_compra%' ORDER BY fechacompra DESC");
 	
 }
 else{
 	$q_compra=mysql_query("SELECT * FROM compra 
 	INNER JOIN empleado ON empleado_idempleado=idempleado
 	INNER JOIN proveedor ON proveedor_idproveedor=idproveedor
-	WHERE idcompra!=1 ORDER BY fechacompra DESC");
+	ORDER BY fechacompra DESC");
 }
 
 ?>

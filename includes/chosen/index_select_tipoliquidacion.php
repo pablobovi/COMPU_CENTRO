@@ -4,8 +4,8 @@
   $q_tipoliquidacion=mysql_query("SELECT * FROM tipoliquidacion
   ORDER BY idtipoliquidacion");
 ?>
-<select name="tipoliquidacion" id="input" class="form-control" required="required">
-  <option value="0">Tipo de Liquidacion</option>
+<select data-placeholder="Tipo de Liquidacion" name="tipoliquidacion" id="input" class="form-control">
+  <option value="">Tipo de Liquidacion</option>
   <?php
   while ($row_tipoliquidacion = mysql_fetch_array($q_tipoliquidacion)) {?>
     <option value="<?php echo $row_tipoliquidacion['idtipoliquidacion']?>"> 

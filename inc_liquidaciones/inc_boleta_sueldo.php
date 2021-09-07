@@ -12,7 +12,7 @@ $q_empleado=mysql_query("SELECT idempleado,nombreempleado,apellidoempleado FROM 
     <div class="row control-group">
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-6">
           Apellido y nombre del empleado
-          <div class="clearfix"></div>
+          <div class="clearfix" required="required"></div>
           <?php include "includes/chosen/index_select_empleado.php" ?>
       </div>
     </div>

@@ -4,8 +4,6 @@
 	$idempleado=$_GET['idempleado'];
 
 	$liquidacion="SELECT * FROM liquidacion
-	INNER JOIN empleado ON empleado_idempleado=idempleado
-	INNER JOIN categoriaempleado ON categoriaempleado_idcategoriaempleado = idcategoriaempleado
 	WHERE idliquidacion=$idliquidacion";
 	$q_liquidacion=mysql_query($liquidacion);
 	$row_liquidacion=mysql_fetch_array($q_liquidacion);
