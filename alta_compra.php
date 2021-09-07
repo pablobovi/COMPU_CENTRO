@@ -15,11 +15,11 @@
 		$totalcompra=$row_lineacompra['neto']+$totalcompra;
 	}
 	$brutocompra=$totalcompra/1.21;
-	$iva=$totalcompra-$brutocompra;
+	$iva=$totalcompra*0.21;
 
 
-	mysql_query("INSERT INTO compra (numerofactura, fechacompra, totalcompra, proveedor_idproveedor, empleado_idempleado)
-	VALUES ('$numerofactura', '$fechacompra', '$totalcompra', '$idproveedor', '$idempleado')");
+	mysql_query("INSERT INTO compra (numerofactura, fechacompra, ivacompra, totalcompra, proveedor_idproveedor, empleado_idempleado)
+	VALUES ('$numerofactura', '$fechacompra', '$iva', '$totalcompra', '$idproveedor', '$idempleado')");
 
 	$compra=mysql_query("SELECT * FROM compra ORDER BY idcompra DESC LIMIT 0,1");
 	$row_compra=mysql_fetch_array($compra);
