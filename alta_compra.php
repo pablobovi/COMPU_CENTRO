@@ -29,15 +29,18 @@
 	mysql_query("UPDATE lineacompra SET compra_idcompra='$ult_compra' WHERE compra_idcompra='1'");
 
 	//Actualiza stock de productos y precio de compra
-	$stock_prod=mysql_query("SELECT cantidad,stockproducto,idproducto,neto FROM lineacompra
+	$stock_prod=mysql_query("SELECT cantidad,stockproducto,idproducto,neto,porcentajeganancia FROM lineacompra
 		INNER JOIN producto ON producto_idproducto=idproducto
 		WHERE compra_idcompra=$ult_compra");
 	while ($row_stock_prod=mysql_fetch_array($stock_prod)) {
 		$nuevostock=$row_stock_prod['stockproducto']+$row_stock_prod['cantidad'];
 		$precionuevo=$row_stock_prod['neto']/$row_stock_prod['cantidad'];
 		$idproducto=$row_stock_prod['idproducto'];
+		$porcganancia=$row_stock_prod['porcentajeganancia'];
+		$nuevoprecioventa= ($precionuevo * ($porcganancia/100)) + $precionuevo;
 
-		mysql_query("UPDATE producto SET stockproducto='$nuevostock', preciocompra='$precionuevo'  WHERE idproducto='$idproducto'");
+
+		mysql_query("UPDATE producto SET stockproducto='$nuevostock', preciocompra='$precionuevo', precioventa='$nuevoprecioventa'  WHERE idproducto='$idproducto'");
 
 	}
 

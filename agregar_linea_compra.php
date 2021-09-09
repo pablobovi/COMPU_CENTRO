@@ -7,7 +7,7 @@ $cantidad=$_POST['cantidad'];
 $preciocompra=$_POST['preciocompra'];
 $neto=$cantidad*$preciocompra;
 $bruto=$neto/1.21;
-$ivalc=$neto*0.21
+$ivalc=$neto*0.21;
 
 
 $insertlineacompra="INSERT INTO lineacompra (cantidad, bruto,compra_idcompra, neto, producto_idproducto, iva_lineacompra) 

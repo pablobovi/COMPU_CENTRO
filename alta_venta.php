@@ -12,10 +12,10 @@
 	$iva=0;
 	$numerofactura= $_POST['numerofactura'];
 
-	$cond_iva=mysql_query("SELECT idtipo FROM cliente INNER JOIN tipo ON tipo_idtipo=idtipo
+	$cond_iva=mysql_query("SELECT tipo_idtipo FROM cliente INNER JOIN tipo ON tipo_idtipo=idtipo
 	WHERE idcliente=$idcliente");
 	$row_cond_iva=mysql_fetch_array($cond_iva);
-	$condiva=$row_cond_iva['idtipo'];
+	$condiva=$row_cond_iva['tipo_idtipo'];
 
 
 
@@ -27,7 +27,7 @@
 		$total=$total*((100-$descuento)/100);
 	}
 
-	if ($condiva=$row_cond_iva['idtipo']==1) {
+	if ($condiva=$row_cond_iva['tipo_idtipo']==1) {
 		$subtotal=$total/1.21;
 		$iva=$subtotal*0.21;
 	}

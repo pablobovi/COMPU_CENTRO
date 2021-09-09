@@ -23,7 +23,7 @@ Nombre Proveedor
     <div class="row control-group">
       <div class="form-group controls col-xs-12 col-sm-6 col-md-6 col-lg-4">
           Factura n&uacute;mero
-          <input type="text" name="numerofactura" id="inputnumerofactura" class="form-control" value="">
+          <input type="text" name="numerofactura" id="inputnumerofactura" class="form-control" value="" required="required">
       </div>
     </div>
   </div>
